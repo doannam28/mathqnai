@@ -4,7 +4,8 @@ namespace App\Admin\Controllers;
 
 use App\Helpers\Utility;
 use App\Models\Category;
-use App\Models\Page;
+use App\Models\Question;
+use App\Models\TaxonomyItem;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Illuminate\Contracts\Foundation\Application;
@@ -14,14 +15,14 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class PageController extends BaseAdminController
+class QuestionController extends BaseAdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Page';
+    protected $title = 'Question';
     protected $ajax = true;
 
     /**
@@ -32,24 +33,42 @@ class PageController extends BaseAdminController
     protected function grid()
     {
 
-
-        $grid = new Grid(new Page());
+        \Admin::css('/assets/css/admin-question.css');
+        $grid = new Grid(new Question());
         // Sắp xếp mặc định theo ID giảm dần
         $grid->model()->orderBy('id', 'desc');
         //filter
         $grid->filter(function ($filter) {
             $filter->disableIdFilter();
-            $filter->like('title', __('Tiêu đề'));
-            $filter->equal('status', __('Trạng thái'))->select([1 => 'Kích hoạt', 0 => 'Không kích hoạt']);
+            $filter->equal('level', __('Level'))->select([0 => 'Dễ', 1 => 'Trung bình', 2 => 'Khó']);
+            $filter->equal('cat_id', __('Danh mục toán'))->select( \App\Models\Taxonomyitem::where('taxonomy_id', 1)
+                ->pluck('name', 'id'));
         });
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Tiêu đề'));
-        $grid->column('title_detail', __('Tiêu đề trang chi tiết'));
-        $grid->column('slug', __('Link'));
+        $grid->column('cat_id', __('Danh mục toán'))->display(function(){
+            $cat = TaxonomyItem::where('id',$this->cat_id)->first();
+            return isset($cat->name)?$cat->name:'';
+        });
+        $grid->column('level', __('Level'))->display(function(){
+            if($this->level == 1) return "Trung Bình";
+            if($this->level == 2) return "Khó";
+            return "Dễ";
+        });
+        $grid->column('content', __('Câu hỏi'))
+            ->display(function ($content) {
+                return '
+            <div class="question-content">
+                '.$content.'
+            </div>
+        ';
+            });
+        $grid->column('result', __('Câu trả lời'));
         $grid->column('order', __('Order'))->editable()->sortable();
         $grid->column('status', __('Trạng thái'))->switch();
-        $grid->column('menu', __('Menu'))->switch();
+
+
         $grid->column('created_at', __('Ngày tạo'))->display(function ($created_at) {
             return date('d/m/Y H:i', strtotime($created_at));
         });
@@ -69,7 +88,7 @@ class PageController extends BaseAdminController
      */
     protected function detail($id): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
-        return redirect("/admin/pages/$id/edit");
+        return redirect("/admin/questions/$id/edit");
     }
 
     /**
@@ -81,7 +100,7 @@ class PageController extends BaseAdminController
     {
 
 
-        $form = new Form(new Page());
+        $form = new Form(new Question());
         $form->setTitle($this->title);
         $form->tools(function ($tools) {
             $tools->disableView();
@@ -93,27 +112,24 @@ class PageController extends BaseAdminController
             $footer->disableEditingCheck();
             $footer->disableCreatingCheck();
         });
-        $form->text('title', __('Tiêu đề'))->required();
-        $form->text('slug', __('Link'));
-        //$form->text('name', __('Label'));
-        $form->text('title_detail', __('Tiêu đề trang chi tiết'));
+        $form->text('title', __('Tiêu đề'));
+        $mang = ["0"=>"Dễ","1"=>"Trung bình","2"=>"Khó"];
+        $form->select('level', 'Level')
+            ->options($mang)
+            ->required();
+        $form->select('cat_id', 'Danh mục toán')
+            ->options(
+                \App\Models\Taxonomyitem::where('taxonomy_id', 1)
+                    ->pluck('name', 'id')
+            )
+            ->required();
+        $form->tinyEditor('content', __('Câu hỏi'));
+        $form->text('result', __('Câu trả lời'))->required();
         $form->number('order', __('Vị trí'))->default(0);
-        $form->image('image_og', __('Og image'))->rules('image|mimes:jpeg,png,jpg,gif,svg,webp');
-        $form->textarea('meta_description', __('Meta description'));
-        $form->tinyEditor('content', __('Nôi dung'));
         $form->switch('status', __('Trạng thái'))->default(1);
-        $form->switch('menu', __('Menu'))->default(0);
         $form->saving(function (\Encore\Admin\Form $form) {
             $request = Request::all();
             if(!isset($request["_edit_inline"]) && !empty($form->title)) {
-                if (empty(trim(strip_tags($form->slug)))) {
-                    $form->slug = Utility::slug(trim(strip_tags($form->title)), "page", $form->model()->id);
-                } else {
-                    $count = Page::where('slug', $form->slug)->where('id', '<>', $form->model()->id)->count();
-                    if ($count) {
-                        $form->slug = Utility::slug(trim(strip_tags($form->title)), "page");
-                    }
-                }
                 if(!empty($form->content)){
                     $content = $form->content;
                     $content = str_replace("../../../uploads","/uploads", $content);

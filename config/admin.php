@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'Admin tajsc',
+    'name' => 'Admin Math-QN AI',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>tajsc</b>',
+    'logo' => '<b>Math-QN AI</b>',
 
     /*
     |--------------------------------------------------------------------------

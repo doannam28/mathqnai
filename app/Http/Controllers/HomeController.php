@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Keys;
 use App\Models\Number;
-use App\Models\Page;
+use App\Models\Question;
 use App\Models\Post;
 use App\Models\Settings;
 use App\Models\Tag;
@@ -98,7 +98,7 @@ class HomeController extends Controller
     }
     public function page($slug='')
     {
-        $cat = Page::where('slug', $slug)->firstOrFail();
+        $cat = Question::where('slug', $slug)->firstOrFail();
         return view('homes.page', [
             'cat' => $cat,
         ]);

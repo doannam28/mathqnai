@@ -10,6 +10,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use Illuminate\Support\Facades\Request;
 use App\Helpers\Utility;
+use function Termwind\ValueObjects\pr;
 
 
 class TaxonomyItemController extends BaseAdminController
@@ -31,10 +32,8 @@ class TaxonomyItemController extends BaseAdminController
         $uri = explode('/',Request::path());
         $vid= 0;
         if(isset($uri[1])){
-            if($uri[1] == 'locations'){
-                $vid = intval(config('admin.category_location_id'));
-            }else if($uri[1] == 'way-tours'){
-                $vid = intval(config('admin.category_way_tour'));
+            if($uri[1] == 'danh-muc-toan'){
+                $vid = 1;
             }
         }
         $grid = new Grid(new TaxonomyItem());
@@ -43,11 +42,12 @@ class TaxonomyItemController extends BaseAdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('slug', __('Slug'));
+        $grid->column('description', __('Mô tả'));
         $grid->column('order', __('Order'))->text();
-        $grid->column('parent_id', __('Parent'))->display(function(){
+        /*$grid->column('parent_id', __('Parent'))->display(function(){
            $cat = TaxonomyItem::where('id',$this->parent_id)->first();
             return isset($cat->name)?$cat->name:'';
-        });
+        });*/
         $grid->column('status', __('Status'))->switch();
         //$grid->column('menu', __('Menu'))->switch();
         $grid->column('created_at', __('Created at'));
@@ -89,14 +89,12 @@ class TaxonomyItemController extends BaseAdminController
         $uri = explode('/',Request::path());
         $vid= 0;
         if(isset($uri[1])){
-            if($uri[1] == 'locations'){
-                $vid = intval(config('admin.category_location_id'));
-            }else if($uri[1] == 'way-tours'){
-                $vid = intval(config('admin.category_way_tour'));
+            if($uri[1] == 'danh-muc-toan'){
+                $vid = 1;
             }
         }
         $cats = Taxonomyitem::where('taxonomy_id',$vid)->orderBy('order','ASC')->get();
-        $listdatas = array();
+        /*$listdatas = array();
         foreach($cats as $k => $v){
             $tmp['id'] = $v['id'];
             $tmp['name'] = $v['name'];
@@ -109,22 +107,29 @@ class TaxonomyItemController extends BaseAdminController
         $options= [];
         foreach ($listree as $k=>$row) {
             $options[$row['id']] = $row['name'];
-        }
+        }*/
         $form = new Form(new TaxonomyItem());
         $form->text('name', __('Name'));
         $form->text('slug', __('Slug'));
+        $form->textarea('description', __('Mô tả'));
         $form->number('order', __('Order'));
         $form->switch('status', __('Status'))->default(1);
         //$form->switch('menu', __('Menu'))->default(0);
         $form->hidden('taxonomy_id')->value($vid);
-        $form->select('parent_id', __('Parent'))
-            ->options($options);
-        //$form->tinyEditor('content', __('Nôi dung'));
-        $form->saving(function (Form $form) {
-            if(empty($form->slug)){
-                $form->slug = Utility::slug($form->name, 'taxonomyitem');
+     /*   $form->select('parent_id', __('Parent'))
+            ->options($options);*/
+        $request = Request::all();
+        if(!isset($request["_edit_inline"]) && !empty($form->title)) {
+            if (empty(trim(strip_tags($form->slug)))) {
+                $form->slug = Utility::slug(trim(strip_tags($form->title)), "taxonomyitem", $form->model()->id);
+            } else {
+                $count = TaxonomyItem::where('slug', $form->slug)->where('id', '<>', $form->model()->id)->count();
+                if ($count) {
+                    $form->slug = Utility::slug(trim(strip_tags($form->title)), "taxonomyitem");
+                }
             }
-        });
+
+        }
         return $form;
     }
 }

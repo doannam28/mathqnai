@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\Menu;
-use App\Models\Page;
+use App\Models\Question;
 use App\Models\Taxonomy;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -51,7 +51,7 @@ class Utility {
 
     public static function getPages()
     {
-        return Page::where('status', 1)->where('menu', 1)
+        return Question::where('status', 1)->where('menu', 1)
             ->orderBy('order', 'ASC')
             ->get();
     }
@@ -153,7 +153,7 @@ class Utility {
                 break;
             case 'page':
                 $slug = Str::slug($name);
-                $obj = new \App\Models\Page();
+                $obj = new \App\Models\Question();
                 $i = 0;
                 while(1){
                     if($i == 0){

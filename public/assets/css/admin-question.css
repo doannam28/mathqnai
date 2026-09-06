@@ -1,0 +1,11 @@
+.question-content {
+    max-width: 600px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.question-content img {
+    max-width: 450px;
+    width: auto;
+    height: auto;
+}

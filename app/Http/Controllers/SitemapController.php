@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Page;
+use App\Models\Question;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -73,7 +73,7 @@ class SitemapController extends Controller
             //$xml .= $this->urlTag("{$baseUrl}/du-doan-xo-so", $now, 'daily', '1.0');
 
             // Các trang Page
-            $pages = Page::where('status', 1)->get();
+            $pages = Question::where('status', 1)->get();
             foreach ($pages as $page) {
                 $xml .= $this->urlTag("{$baseUrl}/du-doan-xo-so-{$page->slug}", $now, 'daily', '0.9');
             }
