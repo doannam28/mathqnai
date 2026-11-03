@@ -18,6 +18,7 @@ Route::group([
     $router->resource('taxonomies', TaxonomyController::class);
     $router->resource('taxonomy-items', TaxonomyItemController::class);
     $router->resource('danh-muc-toan', TaxonomyItemController::class);
+    $router->resource('truong-lop-hoc', TaxonomyItemController::class);
     $router->resource('posts', PostController::class);
     $router->resource('settings', SettingsController::class);
     $router->resource('category', \App\Admin\Controllers\CategoryController::class);

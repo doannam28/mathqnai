@@ -30,7 +30,7 @@
                 <a class="nav-link" href="#"><i class="bi bi-book"></i><span>Luyện tập</span></a>
                 <a class="nav-link" href="#"><i class="bi bi-clock"></i><span>Lịch sử làm bài</span></a>
                 <a class="nav-link" href="#"><i class="bi bi-person"></i><span>Tài khoản</span></a>
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span></a>
+                <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i><span>Đăng xuất</span></a>
             </nav>
             <div class="sidebar-promo mt-auto mx-3 mb-4 p-3 text-center">
                 <img src="/assets/images/robot-trophy.png" alt="Robot học tập" class="promo-image img-fluid">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 06, 2026 lúc 05:13 PM
+-- Thời gian đã tạo: Th10 03, 2026 lúc 10:39 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -1097,7 +1097,116 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (1008, 1, 'admin/mau-de-thi/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 07:32:28', '2026-09-06 07:32:28'),
 (1009, 1, 'admin/mau-de-thi/3', 'PUT', '127.0.0.1', '{\"title\":\"M\\u1eabu \\u0111\\u1ec1 1\",\"number\":\"20\",\"status\":\"on\",\"keyTags\":{\"1\":{\"taxonomyitem_id\":\"9\",\"number\":\"5\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"taxonomyitem_id\":\"7\",\"number\":\"5\",\"id\":\"2\",\"_remove_\":\"0\"},\"3\":{\"taxonomyitem_id\":\"8\",\"number\":\"5\",\"id\":\"3\",\"_remove_\":\"0\"},\"4\":{\"taxonomyitem_id\":\"10\",\"number\":\"5\",\"id\":\"4\",\"_remove_\":\"0\"}},\"_token\":\"PxKKK8F3RYgG6HX8bdChUV1giaddbG0J6Rz6PZX9\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/mau-de-thi\"}', '2026-09-06 07:32:35', '2026-09-06 07:32:35'),
 (1010, 1, 'admin/mau-de-thi', 'GET', '127.0.0.1', '[]', '2026-09-06 07:32:35', '2026-09-06 07:32:35'),
-(1011, 1, 'admin/mau-de-thi/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 07:37:10', '2026-09-06 07:37:10');
+(1011, 1, 'admin/mau-de-thi/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 07:37:10', '2026-09-06 07:37:10'),
+(1012, 1, 'admin', 'GET', '127.0.0.1', '[]', '2026-09-06 20:09:25', '2026-09-06 20:09:25'),
+(1013, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-09-06 20:09:26', '2026-09-06 20:09:26'),
+(1014, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 20:09:38', '2026-09-06 20:09:38'),
+(1015, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '[]', '2026-09-06 20:11:16', '2026-09-06 20:11:16'),
+(1016, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"name\":\"Math-QN AI\",\"site_title\":\"Nuoilo66.com\",\"meta_description\":\"Nuoilo66.com\",\"_token\":\"kDShXXr3yq9fPv3npxjlYAw3hEUOkOSist0gEeGY\",\"_method\":\"PUT\"}', '2026-09-06 20:11:35', '2026-09-06 20:11:35'),
+(1017, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-09-06 20:11:36', '2026-09-06 20:11:36'),
+(1018, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 20:17:43', '2026-09-06 20:17:43'),
+(1019, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"name\":\"Math-QN AI\",\"site_title\":\"Math-QN AI\",\"meta_description\":\"Math-QN AI\",\"_token\":\"kDShXXr3yq9fPv3npxjlYAw3hEUOkOSist0gEeGY\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/settings\"}', '2026-09-06 20:17:51', '2026-09-06 20:17:51'),
+(1020, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-09-06 20:17:51', '2026-09-06 20:17:51'),
+(1021, 1, 'admin/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-09-06 20:47:53', '2026-09-06 20:47:53'),
+(1022, 1, 'admin', 'GET', '127.0.0.1', '[]', '2026-11-02 20:28:27', '2026-11-02 20:28:27'),
+(1023, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-02 20:28:30', '2026-11-02 20:28:30'),
+(1024, 1, 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 20:36:01', '2026-11-02 20:36:01'),
+(1025, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 20:37:56', '2026-11-02 20:37:56'),
+(1026, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:00:30', '2026-11-02 21:00:30'),
+(1027, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"Tr\\u01b0\\u1eddng h\\u1ecdc\",\"icon\":\"fa-align-right\",\"uri\":\"truong-hoc\",\"roles\":[null],\"permission\":null,\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\"}', '2026-11-02 21:01:06', '2026-11-02 21:01:06'),
+(1028, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-02 21:01:07', '2026-11-02 21:01:07'),
+(1029, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-02 21:01:10', '2026-11-02 21:01:10'),
+(1030, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:01:12', '2026-11-02 21:01:12'),
+(1031, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:02:18', '2026-11-02 21:02:18'),
+(1032, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:02:55', '2026-11-02 21:02:55'),
+(1033, 1, 'admin/taxonomies', 'GET', '127.0.0.1', '[]', '2026-11-02 21:03:41', '2026-11-02 21:03:41'),
+(1034, 1, 'admin/taxonomies/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:03:45', '2026-11-02 21:03:45'),
+(1035, 1, 'admin/taxonomies', 'POST', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng h\\u1ecdc\",\"slug\":null,\"status\":\"on\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/taxonomies\"}', '2026-11-02 21:03:56', '2026-11-02 21:03:56'),
+(1036, 1, 'admin/taxonomies/create', 'GET', '127.0.0.1', '[]', '2026-11-02 21:04:07', '2026-11-02 21:04:07'),
+(1037, 1, 'admin/taxonomies', 'POST', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng h\\u1ecdc\",\"slug\":\"truong-hoc\",\"status\":\"on\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\"}', '2026-11-02 21:04:14', '2026-11-02 21:04:14'),
+(1038, 1, 'admin/taxonomies', 'GET', '127.0.0.1', '[]', '2026-11-02 21:04:15', '2026-11-02 21:04:15'),
+(1039, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:04:24', '2026-11-02 21:04:24'),
+(1040, 1, 'admin/truong-hoc/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:04:29', '2026-11-02 21:04:29'),
+(1041, 1, 'admin/truong-hoc', 'POST', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:05:35', '2026-11-02 21:05:35'),
+(1042, 1, 'admin/truong-hoc/create', 'GET', '127.0.0.1', '[]', '2026-11-02 21:05:36', '2026-11-02 21:05:36'),
+(1043, 1, 'admin/truong-hoc', 'POST', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\"}', '2026-11-02 21:06:36', '2026-11-02 21:06:36'),
+(1044, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:06:37', '2026-11-02 21:06:37'),
+(1045, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:06:43', '2026-11-02 21:06:43'),
+(1046, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:07:21', '2026-11-02 21:07:21'),
+(1047, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:07:22', '2026-11-02 21:07:22'),
+(1048, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:07:26', '2026-11-02 21:07:26'),
+(1049, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:07:28', '2026-11-02 21:07:28'),
+(1050, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:07:28', '2026-11-02 21:07:28'),
+(1051, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:15:41', '2026-11-02 21:15:41'),
+(1052, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:15:44', '2026-11-02 21:15:44'),
+(1053, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:15:44', '2026-11-02 21:15:44'),
+(1054, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:15:54', '2026-11-02 21:15:54'),
+(1055, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:15:56', '2026-11-02 21:15:56'),
+(1056, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:15:56', '2026-11-02 21:15:56'),
+(1057, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:16:56', '2026-11-02 21:16:56'),
+(1058, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:16:59', '2026-11-02 21:16:59'),
+(1059, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:17:00', '2026-11-02 21:17:00'),
+(1060, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:18:29', '2026-11-02 21:18:29'),
+(1061, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:00', '2026-11-02 21:19:00'),
+(1062, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:12', '2026-11-02 21:19:12'),
+(1063, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:15', '2026-11-02 21:19:15'),
+(1064, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:25', '2026-11-02 21:19:25'),
+(1065, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:49', '2026-11-02 21:19:49'),
+(1066, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\"}', '2026-11-02 21:19:55', '2026-11-02 21:19:55'),
+(1067, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:19:55', '2026-11-02 21:19:55'),
+(1068, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 21:20:27', '2026-11-02 21:20:27'),
+(1069, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"ZhcabibsmmbtgnUfqUMU4TswJUQxfGJ3kZjjjYHg\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 21:20:29', '2026-11-02 21:20:29'),
+(1070, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 21:20:29', '2026-11-02 21:20:29'),
+(1071, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:48:19', '2026-11-02 23:48:19'),
+(1072, 1, 'admin/truong-hoc/11/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:48:25', '2026-11-02 23:48:25'),
+(1073, 1, 'admin/truong-hoc/11', 'PUT', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"0\",\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-hoc\"}', '2026-11-02 23:48:27', '2026-11-02 23:48:27'),
+(1074, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:48:27', '2026-11-02 23:48:27'),
+(1075, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:51:00', '2026-11-02 23:51:00'),
+(1076, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:51:15', '2026-11-02 23:51:15'),
+(1077, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:51:18', '2026-11-02 23:51:18'),
+(1078, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:51:23', '2026-11-02 23:51:23'),
+(1079, 1, 'admin/truong-hoc/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:51:26', '2026-11-02 23:51:26'),
+(1080, 1, 'admin/truong-hoc/create', 'GET', '127.0.0.1', '[]', '2026-11-02 23:53:51', '2026-11-02 23:53:51'),
+(1081, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '[]', '2026-11-02 23:55:51', '2026-11-02 23:55:51'),
+(1082, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:55:56', '2026-11-02 23:55:56'),
+(1083, 1, 'admin/auth/menu/18/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:55:59', '2026-11-02 23:55:59'),
+(1084, 1, 'admin/auth/menu/18', 'PUT', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"Tr\\u01b0\\u1eddng  l\\u1edbp h\\u1ecdc\",\"icon\":\"fa-align-right\",\"uri\":\"truong-lop-hoc\",\"roles\":[null],\"permission\":null,\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-02 23:56:08', '2026-11-02 23:56:08'),
+(1085, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-02 23:56:08', '2026-11-02 23:56:08'),
+(1086, 1, 'admin/truong-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:56:11', '2026-11-02 23:56:11'),
+(1087, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:56:16', '2026-11-02 23:56:16'),
+(1088, 1, 'admin/auth/menu/18/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:56:20', '2026-11-02 23:56:20'),
+(1089, 1, 'admin/auth/menu/18/edit', 'GET', '127.0.0.1', '[]', '2026-11-02 23:56:23', '2026-11-02 23:56:23'),
+(1090, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:56:45', '2026-11-02 23:56:45'),
+(1091, 1, 'admin/truong-lop-hoc/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:58:15', '2026-11-02 23:58:15'),
+(1092, 1, 'admin/truong-lop-hoc', 'POST', '127.0.0.1', '{\"name\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"slug\":null,\"description\":\"Tr\\u01b0\\u1eddng THCS Nguy\\u1ec5n Tr\\u00e3i\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"2\",\"parent_id\":null,\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-lop-hoc\"}', '2026-11-02 23:58:24', '2026-11-02 23:58:24'),
+(1093, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:58:25', '2026-11-02 23:58:25'),
+(1094, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-02 23:58:59', '2026-11-02 23:58:59'),
+(1095, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:59:49', '2026-11-02 23:59:49'),
+(1096, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:59:54', '2026-11-02 23:59:54'),
+(1097, 1, 'admin/truong-lop-hoc/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-02 23:59:59', '2026-11-02 23:59:59'),
+(1098, 1, 'admin/truong-lop-hoc', 'POST', '127.0.0.1', '{\"name\":\"L\\u1edbp 9A1\",\"slug\":null,\"description\":\"L\\u1edbp 9A1\",\"parent_id\":\"12\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"2\",\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/truong-lop-hoc\"}', '2026-11-03 00:00:13', '2026-11-03 00:00:13'),
+(1099, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:00:14', '2026-11-03 00:00:14'),
+(1100, 1, 'admin/truong-lop-hoc/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:00:22', '2026-11-03 00:00:22'),
+(1101, 1, 'admin/truong-lop-hoc/create', 'GET', '127.0.0.1', '[]', '2026-11-03 00:01:32', '2026-11-03 00:01:32'),
+(1102, 1, 'admin/truong-lop-hoc/create', 'GET', '127.0.0.1', '[]', '2026-11-03 00:02:06', '2026-11-03 00:02:06'),
+(1103, 1, 'admin/truong-lop-hoc', 'POST', '127.0.0.1', '{\"name\":\"L\\u1edbp 9A2\",\"slug\":null,\"description\":\"L\\u1edbp 9A2\",\"parent_id\":\"12\",\"order\":null,\"status\":\"on\",\"taxonomy_id\":\"2\",\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\"}', '2026-11-03 00:02:20', '2026-11-03 00:02:20'),
+(1104, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:02:21', '2026-11-03 00:02:21'),
+(1105, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:02:59', '2026-11-03 00:02:59'),
+(1106, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:04:27', '2026-11-03 00:04:27'),
+(1107, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:06:04', '2026-11-03 00:06:04'),
+(1108, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:07:08', '2026-11-03 00:07:08'),
+(1109, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:07:53', '2026-11-03 00:07:53'),
+(1110, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:08:39', '2026-11-03 00:08:39'),
+(1111, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '[]', '2026-11-03 00:10:15', '2026-11-03 00:10:15'),
+(1112, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '{\"title\":null,\"parent_id\":\"12\",\"status\":null,\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:10:21', '2026-11-03 00:10:21'),
+(1113, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:22:36', '2026-11-03 00:22:36'),
+(1114, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:22:56', '2026-11-03 00:22:56'),
+(1115, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:24:27', '2026-11-03 00:24:27'),
+(1116, 1, 'admin/truong-lop-hoc', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:24:48', '2026-11-03 00:24:48'),
+(1117, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:25:42', '2026-11-03 00:25:42'),
+(1118, 1, 'admin/auth/menu/18', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\"}', '2026-11-03 00:25:46', '2026-11-03 00:25:46'),
+(1119, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:25:46', '2026-11-03 00:25:46'),
+(1120, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 00:25:48', '2026-11-03 00:25:48');
 
 -- --------------------------------------------------------
 
@@ -1613,7 +1722,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('ENWB7zU3KUiB5AQ8GK6YlZyKAFEF9q3xcPK7HAeW', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUHhLS0s4RjNSWWdHNkhYOGJkQ2hVVjFnaWFkZGJHMEo2Uno2UFpYOSI7czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ1OiJodHRwOi8vbWF0aHFuYWkubG9jYWwvYWRtaW4vbWF1LWRlLXRoaS82L2VkaXQiO319', 1788705430);
+('6jVMxsukvcj8COu73cKaCmooRpfZdJbCkD0nWTLq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieDlkRXdrV1dQUk5FcXRzeHczRnJMdlNOOGlQZmEyakFQck15ZXlzbSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly9tYXRocW5haS5sb2NhbC9hdXRoL2dvb2dsZSI7czo1OiJyb3V0ZSI7czoxMjoiZ29vZ2xlLmxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1OiJzdGF0ZSI7czo0MDoibWRucmpQWDZRellZS2ZmZnNiNHhuNnhGSDlidUtiYTk4ZUF1THFPcCI7fQ==', 1793697690),
+('BIQJGjwWtQB3gfcATSOftmyPCP5JVdcvqYPQGv8g', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiME9PMDdmc0syMnE0cFpnM1JqOGxrVWNSZEY0V1RsT2xMRlNVbHhjWiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3QvZGFzaGJvYXJkIjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1793698682),
+('nfPYbyX5OIgncC2sCnwBkJAUDBTjb5E1kqUc1x7x', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoia2NaOHQ2d2dRSFRsWDFzYUdDUWx0WVcyU2VPSTFhcGV3RHdQbzd5cCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1793697854);
 
 -- --------------------------------------------------------
 
@@ -1650,7 +1761,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `address`, `text2`, `text1`, `site_title`, `logo`, `favicon`, `image_og`, `phone`, `meta_description`, `content`, `created_at`, `updated_at`, `email`, `email_receive`, `telegram`, `copyright`, `textfooter`, `texttag`, `img_soicau`) VALUES
-(1, 'Nuoilo66.com', '17 - 19, Ngõ 59 Láng Hạ, Quận Ba Đình, Hà Nội', '<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 7px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soi cầu 247</strong> - trang diễn đ&agrave;n XSMB ch&eacute;m gi&oacute; l&ocirc; đề soi cầu H&Agrave;NG ĐẦU. Sưu tầm kiến thức của c&aacute;c chuy&ecirc;n gia soi cầu 247 TOP 1 h&ocirc;m nay về xổ số, Dự đo&aacute;n soi cầu loto, nu&ocirc;i l&ocirc; khung 3 ng&agrave;y, nu&ocirc;i l&ocirc; song thủ 3 ng&agrave;y tuyệt đối ch&iacute;nh x&aacute;c nhất v&agrave; ho&agrave;n to&agrave;n miễn ph&iacute;.!</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 7px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soi cầu 24h</strong> - Diễn đ&agrave;n soi cầu XSMB 24h, ch&eacute;n gi&oacute;, ph&acirc;n t&iacute;ch, dự đo&aacute;n kết quả Xổ Số Miền Bắc ch&iacute;nh x&aacute;c cao, trang lu&ocirc;n cập nhật Cao Thủ Soi Cầu, Giờ V&agrave;ng chốt số Online, Tập hợp c&aacute;c chuy&ecirc;n gia soi cầu 247 vip miễn ph&iacute; h&ocirc;m nay.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 8px; font-size: 17px;\">\r\n<div style=\"color: #006699;\">\r\n<p style=\"text-align: justify;\"><em><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soicaumb247.Com </strong> - Chuy&ecirc;n trang soi cầu 247 miền bắc h&ocirc;m nay, ph&acirc;n t&iacute;ch dự đo&aacute;n soi cầu 24h ch&iacute;nh x&aacute;c, nu&ocirc;i l&ocirc; khung 3 ng&agrave;y, nu&ocirc;i l&ocirc; song thủ bất b&atilde;i v&agrave; ho&agrave;n to&agrave;n miễn ph&iacute;. </em></p>\r\n<br>\r\n<p style=\"text-align: justify;\"><em><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i>Soi cầu mb 247 - l&agrave; diễn đ&agrave;n <strong>Tr&ograve; chuyện - Ch&eacute;m gi&oacute;</strong> với mục đ&iacute;ch giao lưu, kết bạn, thảo luận về xổ số v&agrave; c&aacute;c lĩnh vực kh&aacute;c tr&ecirc;n tinh thần vui vẻ, h&ograve;a đồng, gi&uacute;p đỡ lẫn nhau kh&ocirc;ng vụ lợi.!</em></p>\r\n</div>\r\n</div>', '<p><img src=\"https://soicaumb247.com/icon-hot-247.gif\" alt=\"soi cầu\">&nbsp;Bạn đang tốn qu&aacute; nhiều thời gian để nghi&ecirc;n cứu cầu m&agrave; vẫn kh&ocirc;ng ch&iacute;nh x&aacute;c, hay bạn đang b&iacute; số v&agrave; kh&ocirc;ng biết n&ecirc;n chọn con số g&igrave; để chơi v&agrave; ăn trong ng&agrave;y h&ocirc;m nay h&atilde;y đến với website soi cầu mb 247 của ch&uacute;ng t&ocirc;i. Đ&acirc;y l&agrave; địa chỉ trang&nbsp;<a title=\"soi cầu 247\" href=\"https://soicaumb247.com/\"><strong>soi cầu 247</strong></a> được nhiều người truy cập v&agrave; lấy số chuẩn mỗi ng&agrave;y. Ch&uacute;ng t&ocirc;i c&oacute; d&agrave;n đội ngũ chuy&ecirc;n nghi&ecirc;n cứu về cầu l&ocirc; đề XSMB n&ecirc;n đưa ra những con số lu&ocirc;n c&oacute; x&aacute;c suất tr&uacute;ng cao. Nếu bạn l&agrave; một t&iacute;n đồ của xổ số Miền Bắc th&igrave; h&atilde;y online thường xuy&ecirc;n để xem ch&uacute;ng t&ocirc;i soi cầu mb v&agrave; chốt số mỗi ng&agrave;y nh&eacute;.</p>', 'Nuoilo66.com', 'images/0ead068cdace0269be2f9f19578e1565.png', 'images/f7a95f130c6a7907e0ca3b18da8973de.jpg', 'images/mau3.png', '912944666', 'Nuoilo66.com', '{\"soicau\":\"<p><strong>+ Soi c\\u1ea7u Loto Mi\\u1ec1n B\\u1eafc<\\/strong><\\/p>\\r\\n<p>- B\\u1ea1ch th\\u1ee7 l&ocirc;: 09<\\/p>\\r\\n<p>- Song th\\u1ee7 l&ocirc;: 09<\\/p>\",\"soicau1\":\"<p><strong>+ Soi c\\u1ea7u Loto Mi\\u1ec1n B\\u1eafc<\\/strong><\\/p>\\r\\n<p>- B\\u1ea1ch th\\u1ee7 l&ocirc;: 09<\\/p>\\r\\n<p>- Song th\\u1ee7 l&ocirc;: 09<\\/p>\",\"text_run\":\"<div class=\\\"marquee-text\\\">&nbsp; &nbsp; &nbsp;<img src=\\\"..\\/..\\/..\\/uploads\\/images\\/vietnam.gif\\\" alt=\\\"l&aacute; c\\u1edd vi\\u1ec7t nam\\\" width=\\\"36\\\" height=\\\"25\\\"> &nbsp; &nbsp; <span style=\\\"font-size: 18px; color: #ee0000;\\\"> SoiCauMB247.Net <\\/span>&nbsp; &nbsp; &nbsp; <img src=\\\"..\\/..\\/..\\/uploads\\/images\\/bonghoa.gif\\\" alt=\\\"b&ocirc;ng hoa\\\" width=\\\"14\\\" height=\\\"12\\\"> &nbsp; &nbsp; <span style=\\\"color: #009933;\\\">Trang Di\\u1ec5n \\u0111&agrave;n th\\u1ea3o lu\\u1eadn x\\u1ed5 s\\u1ed1 soi c\\u1ea7u TOP 1 Vi\\u1ec7t Nam <\\/span> &nbsp; &nbsp; <img src=\\\"..\\/..\\/..\\/uploads\\/images\\/vietnam_1.gif\\\" alt=\\\"l&aacute; c\\u1edd vi\\u1ec7t nam\\\" width=\\\"36\\\" height=\\\"25\\\"> &nbsp; &nbsp;<\\/div>\"}', '2023-04-21 16:09:45', '2025-10-01 06:47:49', 'info@hanvinatravel.vn', 'marketing.hanvina@gmail.com', '@soicaumb247', '<p>Copyright by Nuoilo66.com</p>', '<div class=\"newsform\">\r\n<div class=\"list1\" style=\"/* border-radius: 1px; *//* border: 0px solid #E0EEEE; *//* padding: 8px; *//* font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu 247 miễn ph&iacute;\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">Soi cầu 247 miễn ph&iacute;</span></a></strong> - l&agrave; một trong những phương ph&aacute;p soi cầu c&oacute; mặt sớm nhất được c&aacute;c cao thủ y&ecirc;u th&iacute;ch, ph&aacute;t triển v&agrave; ho&agrave;n thiện qua từng năm. C&agrave;ng về sau, phương ph&aacute;p soi cầu bạch thủ 247 c&agrave;ng chứng minh được độ ch&iacute;nh x&aacute;c của m&igrave;nh th&ocirc;ng qua sức h&uacute;t v&agrave; những may mắn đ&atilde; mang lại kết quả tuyệt vời cho những anh em tin tưởng.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu mb 247 net\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"color: #336666;\">Soi cầu mb 247 net</span></a></strong> - của ch&uacute;ng t&ocirc;i cung cấp dữ liệu thống k&ecirc; với mong muốn mang đến cho anh em những th&ocirc;ng tin bổ &iacute;ch. Ch&uacute;ng t&ocirc;i hy vọng anh em sẽ sử dụng những th&ocirc;ng tin n&agrave;y một c&aacute;ch c&oacute; &iacute;ch nhất, tr&aacute;nh xa c&aacute;c tr&ograve; chơi may rủi vi phạm ph&aacute;p luật. Nếu y&ecirc;u th&iacute;ch bộ m&ocirc;n số học, anh em n&ecirc;n tham gia chơi xổ số kiến thiết để vừa &iacute;ch nước, lợi nh&agrave;.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu 24h h&ocirc;m nay\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">Soi cầu 24h h&ocirc;m nay</span></a></strong> - c&ocirc;ng cụ dự đo&aacute;n xổ số 24h XSMB si&ecirc;u chuẩn x&aacute;c l&agrave; nơi chia sẻ cho anh em những cặp số bạch thủ c&oacute; x&aacute;c suất về cao nhất trong kết quả xổ số miền Bắc ng&agrave;y h&ocirc;m nay. Soi cầu 24h c&ugrave;ng chuy&ecirc;n gia nắm chắc cơ hội đổi đời, miễn ph&iacute; 100%.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\">C&aacute;c nội dung tr&ecirc;n website soi cầu mb 247 được tổng hợp từ nhiều nguồn dữ liệu tr&ecirc;n internet. Ch&uacute;ng t&ocirc;i kh&ocirc;ng khuyến kh&iacute;ch c&aacute;c h&igrave;nh thức cờ bạc, l&ocirc; đề, c&aacute; độ. Đ&acirc;y l&agrave; những h&agrave;nh vi tr&aacute;i với quy định của ph&aacute;p luật. H&atilde;y c&acirc;n nhắc trước khi sử dụng th&ocirc;ng tin tr&ecirc;n website. ch&uacute;c anh em may mắn.</p>\r\n</div>\r\n</div>', '<p><span style=\"color: #336666;\">Tags: soi cau, soi cau mb, soi cau xsmb, soi cau vip, soi cau mien bac, soi cau hom nay, soi cau bach thu, soi cau loto, soi cau xo so, <a title=\"soi cau 247\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">soi cau 247</span></a>, soi cau 88, soi cau 99, soi cau bach thu 247, soi cau dep, soi cau chinh xac, soi cau 24h, soi cau chuan, nuoi lo, nuoi lo khung, nuoi lo bach thu, nuoi lo song thu, nuoi lo 3 ngay, nuoi lo mien phi, soi cau mien phi, l&ocirc; về cả cặp, l&ocirc; về 2 nh&aacute;y, l&ocirc; 2 nh&aacute;y, soi cầu 247, soi cầu bạch thủ 247, soi cầu mb 247</span></p>', 'images/soi-cau-loto.jpg');
+(1, 'Math-QN AI', '17 - 19, Ngõ 59 Láng Hạ, Quận Ba Đình, Hà Nội', '<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 7px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soi cầu 247</strong> - trang diễn đ&agrave;n XSMB ch&eacute;m gi&oacute; l&ocirc; đề soi cầu H&Agrave;NG ĐẦU. Sưu tầm kiến thức của c&aacute;c chuy&ecirc;n gia soi cầu 247 TOP 1 h&ocirc;m nay về xổ số, Dự đo&aacute;n soi cầu loto, nu&ocirc;i l&ocirc; khung 3 ng&agrave;y, nu&ocirc;i l&ocirc; song thủ 3 ng&agrave;y tuyệt đối ch&iacute;nh x&aacute;c nhất v&agrave; ho&agrave;n to&agrave;n miễn ph&iacute;.!</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 7px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soi cầu 24h</strong> - Diễn đ&agrave;n soi cầu XSMB 24h, ch&eacute;n gi&oacute;, ph&acirc;n t&iacute;ch, dự đo&aacute;n kết quả Xổ Số Miền Bắc ch&iacute;nh x&aacute;c cao, trang lu&ocirc;n cập nhật Cao Thủ Soi Cầu, Giờ V&agrave;ng chốt số Online, Tập hợp c&aacute;c chuy&ecirc;n gia soi cầu 247 vip miễn ph&iacute; h&ocirc;m nay.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 1px solid #F0FFFF; border-bottom: 1px dashed #d5d5d5; padding: 8px; font-size: 17px;\">\r\n<div style=\"color: #006699;\">\r\n<p style=\"text-align: justify;\"><em><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i><strong> Soicaumb247.Com </strong> - Chuy&ecirc;n trang soi cầu 247 miền bắc h&ocirc;m nay, ph&acirc;n t&iacute;ch dự đo&aacute;n soi cầu 24h ch&iacute;nh x&aacute;c, nu&ocirc;i l&ocirc; khung 3 ng&agrave;y, nu&ocirc;i l&ocirc; song thủ bất b&atilde;i v&agrave; ho&agrave;n to&agrave;n miễn ph&iacute;. </em></p>\r\n<br>\r\n<p style=\"text-align: justify;\"><em><i class=\"fa fa-star\" style=\"font-size: 10px; color: #ff0000;\" aria-hidden=\"true\"></i>Soi cầu mb 247 - l&agrave; diễn đ&agrave;n <strong>Tr&ograve; chuyện - Ch&eacute;m gi&oacute;</strong> với mục đ&iacute;ch giao lưu, kết bạn, thảo luận về xổ số v&agrave; c&aacute;c lĩnh vực kh&aacute;c tr&ecirc;n tinh thần vui vẻ, h&ograve;a đồng, gi&uacute;p đỡ lẫn nhau kh&ocirc;ng vụ lợi.!</em></p>\r\n</div>\r\n</div>', '<p><img src=\"https://soicaumb247.com/icon-hot-247.gif\" alt=\"soi cầu\">&nbsp;Bạn đang tốn qu&aacute; nhiều thời gian để nghi&ecirc;n cứu cầu m&agrave; vẫn kh&ocirc;ng ch&iacute;nh x&aacute;c, hay bạn đang b&iacute; số v&agrave; kh&ocirc;ng biết n&ecirc;n chọn con số g&igrave; để chơi v&agrave; ăn trong ng&agrave;y h&ocirc;m nay h&atilde;y đến với website soi cầu mb 247 của ch&uacute;ng t&ocirc;i. Đ&acirc;y l&agrave; địa chỉ trang&nbsp;<a title=\"soi cầu 247\" href=\"https://soicaumb247.com/\"><strong>soi cầu 247</strong></a> được nhiều người truy cập v&agrave; lấy số chuẩn mỗi ng&agrave;y. Ch&uacute;ng t&ocirc;i c&oacute; d&agrave;n đội ngũ chuy&ecirc;n nghi&ecirc;n cứu về cầu l&ocirc; đề XSMB n&ecirc;n đưa ra những con số lu&ocirc;n c&oacute; x&aacute;c suất tr&uacute;ng cao. Nếu bạn l&agrave; một t&iacute;n đồ của xổ số Miền Bắc th&igrave; h&atilde;y online thường xuy&ecirc;n để xem ch&uacute;ng t&ocirc;i soi cầu mb v&agrave; chốt số mỗi ng&agrave;y nh&eacute;.</p>', 'Math-QN AI', 'images/0ead068cdace0269be2f9f19578e1565.png', 'images/f7a95f130c6a7907e0ca3b18da8973de.jpg', 'images/mau3.png', '912944666', 'Math-QN AI', '{\"soicau\":\"<p><strong>+ Soi c\\u1ea7u Loto Mi\\u1ec1n B\\u1eafc<\\/strong><\\/p>\\r\\n<p>- B\\u1ea1ch th\\u1ee7 l&ocirc;: 09<\\/p>\\r\\n<p>- Song th\\u1ee7 l&ocirc;: 09<\\/p>\",\"soicau1\":\"<p><strong>+ Soi c\\u1ea7u Loto Mi\\u1ec1n B\\u1eafc<\\/strong><\\/p>\\r\\n<p>- B\\u1ea1ch th\\u1ee7 l&ocirc;: 09<\\/p>\\r\\n<p>- Song th\\u1ee7 l&ocirc;: 09<\\/p>\",\"text_run\":\"<div class=\\\"marquee-text\\\">&nbsp; &nbsp; &nbsp;<img src=\\\"..\\/..\\/..\\/uploads\\/images\\/vietnam.gif\\\" alt=\\\"l&aacute; c\\u1edd vi\\u1ec7t nam\\\" width=\\\"36\\\" height=\\\"25\\\"> &nbsp; &nbsp; <span style=\\\"font-size: 18px; color: #ee0000;\\\"> SoiCauMB247.Net <\\/span>&nbsp; &nbsp; &nbsp; <img src=\\\"..\\/..\\/..\\/uploads\\/images\\/bonghoa.gif\\\" alt=\\\"b&ocirc;ng hoa\\\" width=\\\"14\\\" height=\\\"12\\\"> &nbsp; &nbsp; <span style=\\\"color: #009933;\\\">Trang Di\\u1ec5n \\u0111&agrave;n th\\u1ea3o lu\\u1eadn x\\u1ed5 s\\u1ed1 soi c\\u1ea7u TOP 1 Vi\\u1ec7t Nam <\\/span> &nbsp; &nbsp; <img src=\\\"..\\/..\\/..\\/uploads\\/images\\/vietnam_1.gif\\\" alt=\\\"l&aacute; c\\u1edd vi\\u1ec7t nam\\\" width=\\\"36\\\" height=\\\"25\\\"> &nbsp; &nbsp;<\\/div>\"}', '2023-04-21 16:09:45', '2026-09-07 03:17:51', 'info@hanvinatravel.vn', 'marketing.hanvina@gmail.com', '@soicaumb247', '<p>Copyright by Nuoilo66.com</p>', '<div class=\"newsform\">\r\n<div class=\"list1\" style=\"/* border-radius: 1px; *//* border: 0px solid #E0EEEE; *//* padding: 8px; *//* font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu 247 miễn ph&iacute;\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">Soi cầu 247 miễn ph&iacute;</span></a></strong> - l&agrave; một trong những phương ph&aacute;p soi cầu c&oacute; mặt sớm nhất được c&aacute;c cao thủ y&ecirc;u th&iacute;ch, ph&aacute;t triển v&agrave; ho&agrave;n thiện qua từng năm. C&agrave;ng về sau, phương ph&aacute;p soi cầu bạch thủ 247 c&agrave;ng chứng minh được độ ch&iacute;nh x&aacute;c của m&igrave;nh th&ocirc;ng qua sức h&uacute;t v&agrave; những may mắn đ&atilde; mang lại kết quả tuyệt vời cho những anh em tin tưởng.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu mb 247 net\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"color: #336666;\">Soi cầu mb 247 net</span></a></strong> - của ch&uacute;ng t&ocirc;i cung cấp dữ liệu thống k&ecirc; với mong muốn mang đến cho anh em những th&ocirc;ng tin bổ &iacute;ch. Ch&uacute;ng t&ocirc;i hy vọng anh em sẽ sử dụng những th&ocirc;ng tin n&agrave;y một c&aacute;ch c&oacute; &iacute;ch nhất, tr&aacute;nh xa c&aacute;c tr&ograve; chơi may rủi vi phạm ph&aacute;p luật. Nếu y&ecirc;u th&iacute;ch bộ m&ocirc;n số học, anh em n&ecirc;n tham gia chơi xổ số kiến thiết để vừa &iacute;ch nước, lợi nh&agrave;.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\"><strong><a title=\"Soi cầu 24h h&ocirc;m nay\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">Soi cầu 24h h&ocirc;m nay</span></a></strong> - c&ocirc;ng cụ dự đo&aacute;n xổ số 24h XSMB si&ecirc;u chuẩn x&aacute;c l&agrave; nơi chia sẻ cho anh em những cặp số bạch thủ c&oacute; x&aacute;c suất về cao nhất trong kết quả xổ số miền Bắc ng&agrave;y h&ocirc;m nay. Soi cầu 24h c&ugrave;ng chuy&ecirc;n gia nắm chắc cơ hội đổi đời, miễn ph&iacute; 100%.</p>\r\n</div>\r\n<div class=\"list1\" style=\"border-radius: 1px; border: 0px solid #E0EEEE; padding: 8px; font-size: 17px;\">\r\n<p style=\"text-align: justify;\">C&aacute;c nội dung tr&ecirc;n website soi cầu mb 247 được tổng hợp từ nhiều nguồn dữ liệu tr&ecirc;n internet. Ch&uacute;ng t&ocirc;i kh&ocirc;ng khuyến kh&iacute;ch c&aacute;c h&igrave;nh thức cờ bạc, l&ocirc; đề, c&aacute; độ. Đ&acirc;y l&agrave; những h&agrave;nh vi tr&aacute;i với quy định của ph&aacute;p luật. H&atilde;y c&acirc;n nhắc trước khi sử dụng th&ocirc;ng tin tr&ecirc;n website. ch&uacute;c anh em may mắn.</p>\r\n</div>\r\n</div>', '<p><span style=\"color: #336666;\">Tags: soi cau, soi cau mb, soi cau xsmb, soi cau vip, soi cau mien bac, soi cau hom nay, soi cau bach thu, soi cau loto, soi cau xo so, <a title=\"soi cau 247\" href=\"https://soicaumb247.com/\" target=\"_blank\" rel=\"noopener\"><span style=\"cursor: pointer; color: #336666;\">soi cau 247</span></a>, soi cau 88, soi cau 99, soi cau bach thu 247, soi cau dep, soi cau chinh xac, soi cau 24h, soi cau chuan, nuoi lo, nuoi lo khung, nuoi lo bach thu, nuoi lo song thu, nuoi lo 3 ngay, nuoi lo mien phi, soi cau mien phi, l&ocirc; về cả cặp, l&ocirc; về 2 nh&aacute;y, l&ocirc; 2 nh&aacute;y, soi cầu 247, soi cầu bạch thủ 247, soi cầu mb 247</span></p>', 'images/soi-cau-loto.jpg');
 
 -- --------------------------------------------------------
 
@@ -1698,7 +1809,8 @@ CREATE TABLE `taxonomies` (
 --
 
 INSERT INTO `taxonomies` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Danh mục toán học', 'danh-muc-toan-hoc', 1, '2025-09-28 14:36:20', '2026-09-05 20:40:47');
+(1, 'Danh mục toán học', 'danh-muc-toan-hoc', 1, '2025-09-28 14:36:20', '2026-09-05 20:40:47'),
+(2, 'Trường học', 'truong-hoc', 1, '2026-11-02 21:04:14', '2026-11-02 21:04:14');
 
 -- --------------------------------------------------------
 
@@ -1712,7 +1824,7 @@ CREATE TABLE `taxonomy_items` (
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
   `order` int(11) DEFAULT 0,
-  `slug` varchar(255) NOT NULL,
+  `slug` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `taxonomy_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1724,16 +1836,13 @@ CREATE TABLE `taxonomy_items` (
 --
 
 INSERT INTO `taxonomy_items` (`id`, `name`, `description`, `parent_id`, `order`, `slug`, `status`, `taxonomy_id`, `created_at`, `updated_at`) VALUES
-(1, 'Dự đoán', NULL, NULL, 1, '', 1, 0, '2025-09-29 03:52:43', '2025-09-29 03:56:32'),
-(2, 'Soi cầu', NULL, NULL, 2, 'soi-cau', 1, 0, '2025-09-29 03:56:30', '2025-09-29 03:56:30'),
-(3, 'Bạch thủ lô', NULL, 2, 1, 'bach-thu-lo', 1, 0, '2025-09-29 03:57:07', '2025-09-29 03:57:46'),
-(4, 'Song thu lo', NULL, 2, 2, 'song-thu-lo', 1, 0, '2025-09-29 03:57:27', '2025-09-29 03:57:27'),
-(5, 'Nuôi lô', NULL, NULL, 3, 'nuoi-lo', 1, 0, '2025-09-29 03:58:08', '2025-09-29 03:58:08'),
-(6, 'Nuôi đề', NULL, NULL, 4, 'nuoi-de', 1, 0, '2025-09-29 03:58:22', '2025-09-29 03:58:22'),
 (7, 'Đại số', 'Biểu thức, phương trình, hệ phương trình, bất phương trình và bất đẳng thức', NULL, 1, 'dai-so', 1, 1, '2026-09-05 21:02:45', '2026-09-05 21:04:11'),
 (8, 'Hàm số', 'Hàm số và đồ thị, hàm số bậc nhất, hàm số bậc hai và ứng dụng', NULL, 2, 'ham-so', 1, 1, '2026-09-05 21:04:49', '2026-09-05 21:04:49'),
 (9, 'Hình học', 'Tam giác, tứ giác, đường tròn, hình không gian và các bài toán chứng minh', NULL, 3, 'hinh-hoc', 1, 1, '2026-09-05 21:05:40', '2026-09-05 21:07:38'),
-(10, 'Thống kê & xác xuất', 'Thu thập và biểu diễn dữ liệu, các số đặc trung và xác xuất cơ bản', NULL, 5, 'thong-ke-xac-xuat', 1, 1, '2026-09-05 21:07:17', '2026-09-05 21:09:10');
+(10, 'Thống kê & xác xuất', 'Thu thập và biểu diễn dữ liệu, các số đặc trung và xác xuất cơ bản', NULL, 5, 'thong-ke-xac-xuat', 1, 1, '2026-09-05 21:07:17', '2026-09-05 21:09:10'),
+(12, 'Trường THCS Nguyễn Trãi', 'Trường THCS Nguyễn Trãi', NULL, NULL, 'truong-thcs-nguyen-trai', 1, 2, '2026-11-02 23:58:24', '2026-11-02 23:58:24'),
+(13, 'Lớp 9A1', 'Lớp 9A1', 12, NULL, 'lop-9a1', 1, 2, '2026-11-03 00:00:13', '2026-11-03 00:00:13'),
+(14, 'Lớp 9A2', 'Lớp 9A2', 12, NULL, 'lop-9a2', 1, 2, '2026-11-03 00:02:20', '2026-11-03 00:02:20');
 
 -- --------------------------------------------------------
 
@@ -1743,14 +1852,24 @@ INSERT INTO `taxonomy_items` (`id`, `name`, `description`, `parent_id`, `order`,
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
+  `google_id` varchar(255) DEFAULT NULL,
+  `birth_date` varchar(50) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `google_id`, `birth_date`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Đoàn Nam', 'doannam28@gmail.com', '115719994357111144610', '03/11/2017', NULL, '$2y$12$sqTmb2yxPu4bZejj2seIleNwfG0FZ/zCCza9ptFEW4duGkS5Lbf1y', NULL, '2026-11-03 01:24:15', '2026-11-03 02:35:45'),
+(2, 'Đoàn Nam', 'doannam281@gmail.com', NULL, '03/11/2026', NULL, '$2y$12$vu6n.cHLQPVSg7lbEJXqROOF2gjkeUc2TEqhA9zNeaFJEtj8uDjcC', NULL, '2026-11-03 01:32:55', '2026-11-03 01:32:55');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1962,13 +2081,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1121;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_permissions`
@@ -2076,19 +2195,19 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT cho bảng `taxonomies`
 --
 ALTER TABLE `taxonomies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `taxonomy_items`
 --
 ALTER TABLE `taxonomy_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
