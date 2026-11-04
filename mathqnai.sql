@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2026 lúc 10:39 AM
+-- Thời gian đã tạo: Th10 04, 2026 lúc 11:13 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -44,17 +44,18 @@ CREATE TABLE `admin_menu` (
 --
 
 INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `permission`, `created_at`, `updated_at`) VALUES
-(2, 0, 11, 'Admin', 'fa-tasks', '', NULL, NULL, '2025-10-02 16:35:38'),
-(3, 2, 12, 'Users', 'fa-users', 'auth/users', NULL, NULL, '2025-10-02 16:35:38'),
-(4, 2, 13, 'Roles', 'fa-user', 'auth/roles', NULL, NULL, '2025-10-02 16:35:38'),
-(5, 2, 14, 'Permission', 'fa-ban', 'auth/permissions', NULL, NULL, '2025-10-02 16:35:38'),
-(6, 2, 15, 'Menu', 'fa-bars', 'auth/menu', NULL, NULL, '2025-10-02 16:35:38'),
-(7, 2, 16, 'Operation log', 'fa-history', 'auth/logs', NULL, NULL, '2025-10-02 16:35:38'),
-(10, 0, 10, 'Cấu hình website', 'fa-gear', '/settings', NULL, '2025-09-29 02:52:27', '2025-10-02 16:35:38'),
+(2, 0, 7, 'Admin', 'fa-tasks', '', NULL, NULL, '2026-11-03 21:55:18'),
+(3, 2, 8, 'Users', 'fa-users', 'auth/users', NULL, NULL, '2026-11-03 21:55:18'),
+(4, 2, 9, 'Roles', 'fa-user', 'auth/roles', NULL, NULL, '2026-11-03 21:55:18'),
+(5, 2, 10, 'Permission', 'fa-ban', 'auth/permissions', NULL, NULL, '2026-11-03 21:55:18'),
+(6, 2, 11, 'Menu', 'fa-bars', 'auth/menu', NULL, NULL, '2026-11-03 21:55:18'),
+(7, 2, 12, 'Operation log', 'fa-history', 'auth/logs', NULL, NULL, '2026-11-03 21:55:18'),
+(10, 0, 6, 'Cấu hình website', 'fa-gear', '/settings', NULL, '2025-09-29 02:52:27', '2026-11-03 21:55:18'),
 (11, 0, 2, 'Đề thi', 'fa-angellist', NULL, NULL, '2025-09-30 12:48:14', '2026-09-05 21:11:35'),
 (12, 11, 3, 'Mẫu đề thi', 'fa-adjust', '/mau-de-thi', NULL, '2025-10-01 02:03:09', '2026-09-05 21:30:51'),
 (13, 11, 4, 'Danh sách câu hỏi', 'fa-align-center', '/questions', NULL, '2025-10-01 02:03:49', '2026-09-06 06:33:47'),
-(16, 0, 1, 'Danh mục toán', 'fa-american-sign-language-interpreting', '/danh-muc-toan', NULL, '2025-10-02 14:30:47', '2026-09-05 21:06:08');
+(16, 0, 1, 'Danh mục toán', 'fa-american-sign-language-interpreting', '/danh-muc-toan', NULL, '2025-10-02 14:30:47', '2026-09-05 21:06:08'),
+(19, 11, 5, 'Đề thi', 'fa-android', 'exams', NULL, '2026-11-03 21:55:08', '2026-11-04 02:11:24');
 
 -- --------------------------------------------------------
 
@@ -1206,7 +1207,62 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (1117, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:25:42', '2026-11-03 00:25:42'),
 (1118, 1, 'admin/auth/menu/18', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"PYplyD5Lsq3y3uk0ypuuFufU5frAIm8jaSB5zcL1\"}', '2026-11-03 00:25:46', '2026-11-03 00:25:46'),
 (1119, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 00:25:46', '2026-11-03 00:25:46'),
-(1120, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 00:25:48', '2026-11-03 00:25:48');
+(1120, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 00:25:48', '2026-11-03 00:25:48'),
+(1121, 1, 'admin', 'GET', '127.0.0.1', '[]', '2026-11-03 20:36:17', '2026-11-03 20:36:17'),
+(1122, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-03 20:36:18', '2026-11-03 20:36:18'),
+(1123, 1, 'admin/mau-de-thi', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 20:36:25', '2026-11-03 20:36:25'),
+(1124, 1, 'admin/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 20:36:27', '2026-11-03 20:36:27'),
+(1125, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 20:39:35', '2026-11-03 20:39:35'),
+(1126, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"11\",\"title\":\"T\\u1ea1o \\u0111\\u1ec1 t\\u1ef1 \\u0111\\u1ed9ng\",\"icon\":\"fa-android\",\"uri\":\"exams\",\"roles\":[null],\"permission\":null,\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\"}', '2026-11-03 21:55:08', '2026-11-03 21:55:08'),
+(1127, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 21:55:08', '2026-11-03 21:55:08'),
+(1128, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\",\"_order\":\"[{\\\"id\\\":16},{\\\"id\\\":11,\\\"children\\\":[{\\\"id\\\":12},{\\\"id\\\":13},{\\\"id\\\":19}]},{\\\"id\\\":10},{\\\"id\\\":2,\\\"children\\\":[{\\\"id\\\":3},{\\\"id\\\":4},{\\\"id\\\":5},{\\\"id\\\":6},{\\\"id\\\":7}]}]\"}', '2026-11-03 21:55:17', '2026-11-03 21:55:17'),
+(1129, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 21:55:18', '2026-11-03 21:55:18'),
+(1130, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 23:12:26', '2026-11-03 23:12:26'),
+(1131, 1, 'admin/exams', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 23:14:10', '2026-11-03 23:14:10'),
+(1132, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 23:14:13', '2026-11-03 23:14:13'),
+(1133, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-03 23:17:39', '2026-11-03 23:17:39'),
+(1134, 1, 'admin/exams', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 23:17:44', '2026-11-03 23:17:44'),
+(1135, 1, 'admin/exams/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-03 23:51:41', '2026-11-03 23:51:41'),
+(1136, 1, 'admin/exams', 'GET', '127.0.0.1', '[]', '2026-11-03 23:51:43', '2026-11-03 23:51:43'),
+(1137, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:28:33', '2026-11-04 01:28:33'),
+(1138, 1, 'admin/auth/menu/19/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:28:37', '2026-11-04 01:28:37'),
+(1139, 1, 'admin/auth/menu/19', 'PUT', '127.0.0.1', '{\"parent_id\":\"11\",\"title\":\"T\\u1ea1o \\u0111\\u1ec1 t\\u1ef1 \\u0111\\u1ed9ng\",\"icon\":\"fa-android\",\"uri\":\"examkeys\",\"roles\":[null],\"permission\":null,\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-04 01:28:44', '2026-11-04 01:28:44'),
+(1140, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-04 01:28:44', '2026-11-04 01:28:44'),
+(1141, 1, 'admin/exams', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:29:28', '2026-11-04 01:29:28'),
+(1142, 1, 'admin/exams/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:29:32', '2026-11-04 01:29:32'),
+(1143, 1, 'admin/exams', 'GET', '127.0.0.1', '[]', '2026-11-04 01:29:35', '2026-11-04 01:29:35'),
+(1144, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:34:55', '2026-11-04 01:34:55');
+INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `input`, `created_at`, `updated_at`) VALUES
+(1145, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-04 01:35:00', '2026-11-04 01:35:00'),
+(1146, 1, 'admin/examkeys', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:35:06', '2026-11-04 01:35:06'),
+(1147, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:35:09', '2026-11-04 01:35:09'),
+(1148, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:35:11', '2026-11-04 01:35:11'),
+(1149, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:35:34', '2026-11-04 01:35:34'),
+(1150, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:35:37', '2026-11-04 01:35:37'),
+(1151, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:35:39', '2026-11-04 01:35:39'),
+(1152, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:38:02', '2026-11-04 01:38:02'),
+(1153, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:38:55', '2026-11-04 01:38:55'),
+(1154, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:38:57', '2026-11-04 01:38:57'),
+(1155, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:39:00', '2026-11-04 01:39:00'),
+(1156, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:39:35', '2026-11-04 01:39:35'),
+(1157, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:39:38', '2026-11-04 01:39:38'),
+(1158, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:39:40', '2026-11-04 01:39:40'),
+(1159, 1, 'admin/examkeys', 'GET', '127.0.0.1', '[]', '2026-11-04 01:39:58', '2026-11-04 01:39:58'),
+(1160, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:40:01', '2026-11-04 01:40:01'),
+(1161, 1, 'admin/examkeys', 'POST', '127.0.0.1', '{\"title\":\"T\\u1ea1o \\u0111\\u1ec1 t\\u1eeb m\\u1eabu \\u0111\\u1ec1 1\",\"key_id\":\"3\",\"number\":\"3\",\"status\":\"on\",\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/examkeys\"}', '2026-11-04 01:40:30', '2026-11-04 01:40:30'),
+(1162, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '[]', '2026-11-04 01:40:31', '2026-11-04 01:40:31'),
+(1163, 1, 'admin/examkeys/create', 'GET', '127.0.0.1', '[]', '2026-11-04 01:42:13', '2026-11-04 01:42:13'),
+(1164, 1, 'admin/mau-de-thi', 'GET', '127.0.0.1', '[]', '2026-11-04 01:44:44', '2026-11-04 01:44:44'),
+(1165, 1, 'admin/mau-de-thi/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 01:44:50', '2026-11-04 01:44:50'),
+(1166, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 02:11:09', '2026-11-04 02:11:09'),
+(1167, 1, 'admin/auth/menu/19/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 02:11:13', '2026-11-04 02:11:13'),
+(1168, 1, 'admin/auth/menu/19', 'PUT', '127.0.0.1', '{\"parent_id\":\"11\",\"title\":\"\\u0110\\u1ec1 thi\",\"icon\":\"fa-android\",\"uri\":\"exams\",\"roles\":[null],\"permission\":null,\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-04 02:11:24', '2026-11-04 02:11:24'),
+(1169, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-04 02:11:24', '2026-11-04 02:11:24'),
+(1170, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-04 02:11:26', '2026-11-04 02:11:26'),
+(1171, 1, 'admin/exams', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 02:11:29', '2026-11-04 02:11:29'),
+(1172, 1, 'admin/exams/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-04 02:11:31', '2026-11-04 02:11:31'),
+(1173, 1, 'admin/exams', 'POST', '127.0.0.1', '{\"title\":\"\\u0110\\u1ec1 1\",\"keys_id\":\"3\",\"status\":\"on\",\"_token\":\"slxqyXF2j831AXw9GpKVWO2rUPPbGTkn6Bbu9o6B\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/exams\"}', '2026-11-04 02:12:31', '2026-11-04 02:12:31'),
+(1174, 1, 'admin/exams', 'GET', '127.0.0.1', '[]', '2026-11-04 02:12:32', '2026-11-04 02:12:32');
 
 -- --------------------------------------------------------
 
@@ -1422,6 +1478,29 @@ CREATE TABLE `exams` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `keys_id` int(11) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `exams`
+--
+
+INSERT INTO `exams` (`id`, `title`, `created_at`, `updated_at`, `status`, `keys_id`) VALUES
+(1, 'Đề 1', '2026-11-04 02:12:31', '2026-11-04 02:12:31', 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `exam_keys`
+--
+
+CREATE TABLE `exam_keys` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `status` int(11) DEFAULT 0,
+  `keys_id` int(11) DEFAULT 0,
+  `number` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -1722,9 +1801,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6jVMxsukvcj8COu73cKaCmooRpfZdJbCkD0nWTLq', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoieDlkRXdrV1dQUk5FcXRzeHczRnJMdlNOOGlQZmEyakFQck15ZXlzbSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly9tYXRocW5haS5sb2NhbC9hdXRoL2dvb2dsZSI7czo1OiJyb3V0ZSI7czoxMjoiZ29vZ2xlLmxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1OiJzdGF0ZSI7czo0MDoibWRucmpQWDZRellZS2ZmZnNiNHhuNnhGSDlidUtiYTk4ZUF1THFPcCI7fQ==', 1793697690),
-('BIQJGjwWtQB3gfcATSOftmyPCP5JVdcvqYPQGv8g', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiME9PMDdmc0syMnE0cFpnM1JqOGxrVWNSZEY0V1RsT2xMRlNVbHhjWiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly9sb2NhbGhvc3QvZGFzaGJvYXJkIjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1793698682),
-('nfPYbyX5OIgncC2sCnwBkJAUDBTjb5E1kqUc1x7x', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoia2NaOHQ2d2dRSFRsWDFzYUdDUWx0WVcyU2VPSTFhcGV3RHdQbzd5cCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1793697854);
+('4bAHQbakN2U80SOYS5idTQsm94c6mpKKURsBK71Y', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoic2x4cXlYRjJqODMxQVh3OUdwS1ZXTzJyVVBQYkdUa242QmJ1OW82QiI7czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjM3OiJodHRwOi8vbWF0aHFuYWkubG9jYWwvYWRtaW4vYXV0aC9tZW51IjtzOjU6InJvdXRlIjtzOjIxOiJhZG1pbi5hdXRoLm1lbnUuaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1793783552);
 
 -- --------------------------------------------------------
 
@@ -1960,6 +2037,12 @@ ALTER TABLE `exams`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `exam_keys`
+--
+ALTER TABLE `exam_keys`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `exam_question`
 --
 ALTER TABLE `exam_question`
@@ -2081,13 +2164,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1121;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1175;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_permissions`
@@ -2117,6 +2200,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT cho bảng `exams`
 --
 ALTER TABLE `exams`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `exam_keys`
+--
+ALTER TABLE `exam_keys`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

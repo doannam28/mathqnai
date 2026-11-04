@@ -26,5 +26,6 @@ Route::group([
     $router->resource('menus', \App\Admin\Controllers\MenuController::class);
     $router->resource('questions', \App\Admin\Controllers\QuestionController::class);
     $router->resource('tags', \App\Admin\Controllers\TagController::class);
+    $router->resource('exams', \App\Admin\Controllers\ExamsController::class);
     $router->get('/', 'HomeController@index')->name('home');
 });
