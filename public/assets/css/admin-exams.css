@@ -1,0 +1,28 @@
+.exam-question-builder option:disabled {
+    color: #8f96a3 !important;
+    background-color: #f5f7fa !important;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.exam-question-builder .select2-container--default .select2-results__option--disabled,
+.exam-question-builder .select2-container--default .select2-results__option[aria-disabled="true"] {
+    color: #8f96a3 !important;
+    background-color: #f5f7fa !important;
+    font-style: italic;
+    text-decoration: line-through;
+    opacity: 1 !important;
+}
+
+.exam-question-builder .select2-container--default .select2-results__option--disabled::before,
+.exam-question-builder .select2-container--default .select2-results__option[aria-disabled="true"]::before {
+    content: "Đã chọn";
+    display: inline-block;
+    margin-right: 8px;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: #dfe4ee;
+    color: #60708a;
+    font-size: 11px;
+    line-height: 1.4;
+}

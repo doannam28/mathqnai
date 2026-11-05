@@ -71,8 +71,12 @@ class SettingsController extends AdminController
         $form->image('logo', __('Logo'));
         $form->image('favicon', __('Favicon'));
         $form->image('image_og', __('Ảnh show trên social'));
+        $form->text('website', __('Domain website'));
         $form->text('site_title', __('Tiêu đề website'));
         $form->text('meta_description', __('Meta description'));
+        $form->number('time_test', __('Thời gian làm bài kiểm tra đầu vào (phút)'));
+        $form->number('time_exam', __('Thời gian làm bài thi thử (phút)'));
+        $form->text('target_score', __('Mục tiêu điểm số'));
         //$form->image('img_soicau', __('Img soi cầu'));
 
         //$form->tinyEditor('soicau1', __('Soi cầu 2'))->default($content->soicau1 ?? "");

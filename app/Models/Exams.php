@@ -5,7 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Exams extends Model {
-    protected $fillable = [];
+    protected $fillable = [
+        'title',
+        'status',
+        'keys_id',
+        'test',
+    ];
     protected $table = 'exams';
     public function category()
     {

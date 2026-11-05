@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Settings extends Model {
     protected $fillable = [];
     protected $table = 'settings';
+    protected $casts = [
+        'target_score' => 'float',
+        'time_test' => 'integer',
+        'time_exam' => 'integer',
+    ];
 }
 

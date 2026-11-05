@@ -10,12 +10,115 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 class UsersController extends Controller
 {
     public function login(Request $request)
     {
         return view('users.login');
+    }
+
+    public function forgotPasswordForm()
+    {
+        return view('users.forgot_password');
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+        ], [
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Email không đúng định dạng.',
+            'email.exists' => 'Email này chưa được đăng ký trong hệ thống.',
+        ]);
+
+        if ($validator->fails()) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => $validator->errors()->first(),
+                    'errors' => $validator->errors(),
+                ], 422);
+            }
+
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $status = \Illuminate\Support\Facades\Password::sendResetLink($request->only('email'));
+
+        if ($status === \Illuminate\Support\Facades\Password::RESET_LINK_SENT) {
+            $message = 'Chúng tôi đã gửi email đặt lại mật khẩu. Vui lòng kiểm tra hộp thư của bạn.';
+
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => $message,
+                ]);
+            }
+
+            return back()->with('success', $message);
+        }
+
+        $message = __($status);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => false,
+                'message' => $message,
+            ], 422);
+        }
+
+        return back()->withErrors(['email' => $message])->withInput();
+    }
+
+    public function resetPasswordForm(Request $request, string $token)
+    {
+        return view('users.reset_password', [
+            'token' => $token,
+            'email' => $request->query('email', ''),
+        ]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'token' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string|min:8|confirmed',
+        ], [
+            'token.required' => 'Mã xác thực không hợp lệ.',
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Email không đúng định dạng.',
+            'password.required' => 'Vui lòng nhập mật khẩu mới.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password.confirmed' => 'Mật khẩu nhập lại không trùng khớp.',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $status = \Illuminate\Support\Facades\Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password),
+                    'remember_token' => Str::random(60),
+                ])->save();
+
+                event(new \Illuminate\Auth\Events\PasswordReset($user));
+            }
+        );
+
+        if ($status !== \Illuminate\Support\Facades\Password::PASSWORD_RESET) {
+            return back()->withErrors([
+                'email' => __($status),
+            ])->withInput();
+        }
+
+        return redirect('/dang-nhap')->with('success', 'Đổi mật khẩu thành công. Vui lòng đăng nhập lại.');
     }
 
     public function redirectToGoogle()
@@ -175,6 +278,126 @@ class UsersController extends Controller
         return view('users.register');
     }
 
+    public function index(Request $request)
+    {
+        $user = Auth::guard('web')->user();
+
+        if ($user) {
+            return redirect('/dashboard');
+        }
+
+        return redirect('/dang-nhap');
+    }
+
+    public function updateAccount(Request $request)
+    {
+        $user = Auth::guard('web')->user();
+
+        if (!$user) {
+            return redirect('/dang-nhap');
+        }
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'sex' => 'required|in:0,1',
+            'birth_date' => 'nullable|date_format:Y-m-d',
+            'avata' => 'nullable|image|max:2048',
+            'password' => 'nullable|string|min:8|confirmed',
+        ], [
+            'name.required' => 'Vui lòng nhập họ và tên.',
+            'name.max' => 'Họ và tên không được vượt quá 255 ký tự.',
+            'sex.required' => 'Vui lòng chọn giới tính.',
+            'sex.in' => 'Giới tính không hợp lệ.',
+            'birth_date.date_format' => 'Ngày sinh không hợp lệ.',
+            'avata.image' => 'Ảnh đại diện phải là file hình ảnh.',
+            'avata.max' => 'Ảnh đại diện không được vượt quá 2MB.',
+            'password.min' => 'Mật khẩu mới phải có ít nhất 8 ký tự.',
+            'password.confirmed' => 'Mật khẩu nhập lại không trùng khớp.',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $input = $validator->validated();
+
+        $user->name = trim(strip_tags($input['name']));
+        $user->sex = (int) $input['sex'];
+        $user->birth_date = $input['birth_date'] ?? null;
+
+        if ($request->hasFile('avata')) {
+            $uploadPath = public_path('uploads/avata');
+
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0755, true);
+            }
+
+            $file = $request->file('avata');
+            $extension = $file->getClientOriginalExtension() ?: $file->extension();
+            $fileName = $user->id . '_' . Str::random(12) . '.' . $extension;
+            $relativePath = 'uploads/avata/' . $fileName;
+
+            if (!empty($user->avata)) {
+                $oldFile = public_path($user->avata);
+                if (is_file($oldFile)) {
+                    @unlink($oldFile);
+                }
+            }
+
+            $file->move($uploadPath, $fileName);
+            $user->avata = $relativePath;
+        }
+
+        if (!empty($input['password'])) {
+            $user->password = Hash::make($input['password']);
+        }
+
+        $user->save();
+
+        return back()->with('success', 'Cập nhật tài khoản thành công.');
+    }
+
+    public function updateTargetScore(Request $request)
+    {
+        $user = Auth::guard('web')->user();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Vui lòng đăng nhập để cập nhật mục tiêu.',
+            ], 401);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'target_score' => 'required|numeric|min:0|max:10',
+        ], [
+            'target_score.required' => 'Vui lòng nhập mục tiêu điểm số.',
+            'target_score.numeric' => 'Mục tiêu điểm số phải là số.',
+            'target_score.min' => 'Mục tiêu điểm số không được nhỏ hơn 0.',
+            'target_score.max' => 'Mục tiêu điểm số không được lớn hơn 10.',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors()->first(),
+            ], 422);
+        }
+
+        $user->target_score = (float) $request->input('target_score');
+        $user->save();
+
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Đã cập nhật mục tiêu điểm số.',
+                'target_score' => $user->target_score,
+            ]);
+        }
+
+        return back()->with('success', 'Đã cập nhật mục tiêu điểm số.');
+    }
+
     public function submit_register(Request $request)
     {
         try {
@@ -182,6 +405,7 @@ class UsersController extends Controller
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email',
+                'sex' => 'required|in:0,1',
                 'password' => 'required|string|min:8|confirmed',
                 'password_confirmation' => 'required|string|min:8',
                 'birth_date' => 'required|date_format:d/m/Y|before_or_equal:today',
@@ -193,6 +417,9 @@ class UsersController extends Controller
                 'email.email' => 'Email không đúng định dạng.',
                 'email.unique' => 'Email đã tồn tại trong hệ thống.',
                 'email.max' => 'Email không được vượt quá 255 ký tự.',
+
+                'sex.required' => 'Vui lòng chọn giới tính.',
+                'sex.in' => 'Giới tính không hợp lệ.',
 
                 'password.required' => 'Vui lòng nhập mật khẩu.',
                 'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
@@ -223,6 +450,7 @@ class UsersController extends Controller
 
             $user->name = trim(strip_tags($input['full_name']));
             $user->email = trim($input['email']);
+            $user->sex = (int) $input['sex'];
 
             // Hash mật khẩu trước khi lưu
             $user->password = Hash::make($input['password']);

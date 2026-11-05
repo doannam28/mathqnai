@@ -40,11 +40,20 @@
             <button class="btn btn-register w-100" type="submit">Đăng nhập</button>
         </form>
         <div class="separator"><span>hoặc</span></div>
-        <a href="{{ route('google.login') }}" class="btn btn-google w-100" id="googleRegister"><img alt="" height="22" src="assets/images/google-g.svg" width="22"/>Đăng nhập với Google</a>
+        <a href="/auth/google" class="btn btn-google w-100" id="googleRegister"><img alt="" height="22" src="assets/images/google-g.svg" width="22"/>Đăng nhập với Google</a>
+        <p class="login-text mb-1"><a href="/quen-mat-khau">Quên mật khẩu?</a></p>
         <p class="login-text">Chưa có tài khoản? <a href="/dang-ky">Đăng ký</a></p>
     </section>
 </main>
 <script>
+    @if(session('success'))
+    Swal.fire({
+        icon: 'success',
+        title: 'Thành công!',
+        text: @json(session('success')),
+    });
+    @endif
+
     const form = document.getElementById('registerForm');
     const password = document.getElementById('password');
     const feedback = document.getElementById('formFeedback');
@@ -68,15 +77,16 @@
         feedback.className = 'form-feedback';
         if (!form.checkValidity()) return;
         let formData = new FormData(form);
-        fetch("{{ url('/submit-login') }}", {
+        fetch("/submit-login", {
             method: "POST",
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             body: formData
         })
-            .then(response => response.json())
-            .then(data => {
+            .then(async response => {
+                const data = await response.json();
+
                 if (response.ok && data.success) {
                     Swal.fire({
                         icon: 'success',
@@ -87,13 +97,14 @@
                     });
 
                     window.location.href = data.redirect;
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Đăng nhập thất bại!',
-                        text: data.message || 'Email hoặc mật khẩu không chính xác.'
-                    });
+                    return;
                 }
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Đăng nhập thất bại!',
+                    text: data.message || 'Email hoặc mật khẩu không chính xác.'
+                });
             })
             .catch(error => {
                 console.error('Error:', error);

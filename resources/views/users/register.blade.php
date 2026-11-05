@@ -37,6 +37,18 @@
                 <div class="input-icon"><i aria-hidden="true" class="bi bi-envelope"></i><input autocomplete="email" class="form-control" id="email" name="email" placeholder="Nhập email" required="" type="email"/></div>
                 <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div></div>
             <div class="field">
+                <label class="form-label" for="sex">Giới tính</label>
+                <div class="input-icon">
+                    <i aria-hidden="true" class="bi bi-gender-ambiguous"></i>
+                    <select class="form-select" id="sex" name="sex" required>
+                        <option value="">Chọn giới tính</option>
+                        <option value="0">Nam</option>
+                        <option value="1">Nữ</option>
+                    </select>
+                </div>
+                <div class="invalid-feedback">Vui lòng chọn giới tính.</div>
+            </div>
+            <div class="field">
                 <label class="form-label" for="password">Mật khẩu</label>
                 <div class="input-icon has-action"><i aria-hidden="true" class="bi bi-lock"></i><input autocomplete="new-password" class="form-control" id="password" minlength="8" name="password" placeholder="Nhập mật khẩu" required="" type="password"/><button aria-label="Hiện mật khẩu" class="input-action toggle-password" data-target="password" type="button"><i class="bi bi-eye"></i></button></div>
                 <div class="invalid-feedback">Vui lòng nhập mật khẩu tối thiểu 8 ký tự.</div></div>
@@ -119,7 +131,7 @@
         feedback.className = 'form-feedback';
         if (!form.checkValidity()) return;
         let formData = new FormData(form);
-        fetch("{{ url('/submit-register') }}", {
+        fetch("/submit-register", {
             method: "POST",
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"

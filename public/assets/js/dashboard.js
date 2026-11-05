@@ -7,13 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
   Chart.defaults.color = '#59627a';
 
   const knowledgeCtx = document.getElementById('knowledgeChart');
-  new Chart(knowledgeCtx, {
+  if (knowledgeCtx) {
+    const knowledgeData = window.dashboardKnowledgeChartData || {
+      labels: ['Đại số', 'Hàm số', 'Hình học', 'Thống kê & Xác suất'],
+      values: [7.1, 4.8, 6.5, 6.0],
+      colors: ['#54bf92', '#efb229', '#f05b51', '#9443c7']
+    };
+
+    new Chart(knowledgeCtx, {
     type: 'doughnut',
     data: {
-      labels: ['Đại số', 'Hàm số', 'Hình học', 'Thống kê & Xác suất'],
+      labels: knowledgeData.labels,
       datasets: [{
-        data: [7.1, 4.8, 6.5, 6.0],
-        backgroundColor: ['#54bf92', '#efb229', '#f05b51', '#9443c7'],
+        data: knowledgeData.values,
+        backgroundColor: knowledgeData.colors,
         borderColor: '#ffffff',
         borderWidth: 2,
         hoverOffset: 3
@@ -25,16 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
       cutout: '68%',
       plugins: { legend: { display: false }, tooltip: { enabled: true } }
     }
-  });
+    });
+  }
 
   const progressCtx = document.getElementById('progressChart');
-  new Chart(progressCtx, {
+  if (progressCtx) {
+    const progressData = window.dashboardProgressChartData || {
+      labels: ['Lần 1', 'Lần 2', 'Lần 3', 'Lần 4', 'Lần 5'],
+      values: [5.0, 5.5, 6.0, 6.5, 6.2]
+    };
+
+    new Chart(progressCtx, {
     type: 'line',
     data: {
-      labels: ['Lần 1', 'Lần 2', 'Lần 3', 'Lần 4', 'Lần 5'],
+      labels: progressData.labels,
       datasets: [{
-        label: 'Điểm số qua các lần thi/thực hành',
-        data: [5.0, 5.5, 6.0, 6.5, 6.2],
+        label: 'Điểm số qua các lần thi thử',
+        data: progressData.values,
         borderColor: '#1464f4',
         backgroundColor: '#1464f4',
         borderWidth: 3,
@@ -70,5 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     }
-  });
+    });
+  }
 });
