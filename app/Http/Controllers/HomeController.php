@@ -464,7 +464,7 @@ class HomeController extends Controller
         $exam = Exams::query()
             ->where('status', 1)
             ->where('test', 1)
-            ->orderBy('id', 'asc')
+            ->inRandomOrder()
             ->first();
 
         $questions = collect();

@@ -282,11 +282,13 @@ class UsersController extends Controller
     {
         $user = Auth::guard('web')->user();
 
-        if ($user) {
-            return redirect('/dashboard');
+        if (!$user) {
+            return redirect('/dang-nhap');
         }
 
-        return redirect('/dang-nhap');
+        return view('users.account', [
+            'user' => $user,
+        ]);
     }
 
     public function updateAccount(Request $request)

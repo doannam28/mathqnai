@@ -56,7 +56,7 @@
     }
 
     function buildTitleOptions(total, selectedValue) {
-        var html = '<option value="">-- Chọn title --</option>';
+        var html = '<option value="">-- Chọn thứ tự --</option>';
 
         for (var i = 1; i <= total; i++) {
             var selected = String(i) === String(selectedValue) ? ' selected' : '';

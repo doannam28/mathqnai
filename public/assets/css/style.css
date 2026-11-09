@@ -190,4 +190,28 @@ a { text-decoration: none; }
   .ai-body { min-height: 0; }
   .ai-message { font-size: 13px; }
   .exercise-row .btn { width: 100%; }
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 #prevQuestion,
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 #nextQuestion {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 #questionCounter {
+    order: 2;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 #prevQuestion { order: 1; }
+  form#examForm > .d-flex.justify-content-between.align-items-center.mt-4 #nextQuestion { order: 3; }
+}
+.question-content img{
+    max-width: 100%;
 }
