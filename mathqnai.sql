@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2026 lúc 11:31 AM
+-- Thời gian đã tạo: Th10 09, 2026 lúc 11:22 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -45,17 +45,19 @@ CREATE TABLE `admin_menu` (
 
 INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `permission`, `created_at`, `updated_at`) VALUES
 (2, 0, 7, 'Admin', 'fa-tasks', '', NULL, NULL, '2026-11-03 21:55:18'),
-(3, 2, 8, 'Users', 'fa-users', 'auth/users', NULL, NULL, '2026-11-03 21:55:18'),
+(3, 2, 8, 'Quản lý tk admin', 'fa-users', 'auth/users', NULL, NULL, '2026-11-09 02:40:27'),
 (4, 2, 9, 'Roles', 'fa-user', 'auth/roles', NULL, NULL, '2026-11-03 21:55:18'),
 (5, 2, 10, 'Permission', 'fa-ban', 'auth/permissions', NULL, NULL, '2026-11-03 21:55:18'),
 (6, 2, 11, 'Menu', 'fa-bars', 'auth/menu', NULL, NULL, '2026-11-03 21:55:18'),
 (7, 2, 12, 'Operation log', 'fa-history', 'auth/logs', NULL, NULL, '2026-11-03 21:55:18'),
-(10, 0, 6, 'Cấu hình website', 'fa-gear', '/settings', NULL, '2025-09-29 02:52:27', '2026-11-03 21:55:18'),
+(10, 0, 6, 'Cấu hình website', 'fa-gear', '/settings', '*', '2025-09-29 02:52:27', '2026-11-09 03:01:35'),
 (11, 0, 2, 'Đề thi', 'fa-angellist', NULL, NULL, '2025-09-30 12:48:14', '2026-09-05 21:11:35'),
 (12, 11, 3, 'Mẫu đề thi', 'fa-adjust', '/mau-de-thi', NULL, '2025-10-01 02:03:09', '2026-09-05 21:30:51'),
 (13, 11, 4, 'Danh sách câu hỏi', 'fa-align-center', '/questions', NULL, '2025-10-01 02:03:49', '2026-09-06 06:33:47'),
-(16, 0, 1, 'Danh mục toán', 'fa-american-sign-language-interpreting', '/danh-muc-toan', NULL, '2025-10-02 14:30:47', '2026-09-05 21:06:08'),
-(19, 11, 5, 'Đề thi', 'fa-android', 'exams', NULL, '2026-11-03 21:55:08', '2026-11-04 02:11:24');
+(16, 0, 1, 'Danh mục toán', 'fa-american-sign-language-interpreting', '/danh-muc-toan', NULL, '2025-10-02 14:30:47', '2026-11-09 03:04:30'),
+(19, 11, 5, 'Đề thi', 'fa-android', 'exams', NULL, '2026-11-03 21:55:08', '2026-11-04 02:11:24'),
+(20, 0, 0, 'Quản lý tk học sinh', 'fa-bars', '/user', NULL, '2026-11-09 02:43:35', '2026-11-09 02:43:35'),
+(21, 0, 0, 'Lịch sử làm bài', 'fa-history', 'exam-attempts', NULL, '2026-11-09 03:19:11', '2026-11-09 03:19:11');
 
 -- --------------------------------------------------------
 
@@ -1440,7 +1442,142 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (1349, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-05 01:55:31', '2026-11-05 01:55:31'),
 (1350, 1, 'admin/settings/1', 'PUT', '127.0.0.1', '{\"name\":\"Math-QN AI\",\"website\":\"https:\\/\\/mathqnai.com\",\"site_title\":\"Math-QN AI\",\"meta_description\":\"Math-QN AI\",\"time_test\":\"30\",\"time_exam\":\"45\",\"target_score\":\"8.2\",\"_token\":\"wdBgcoql6dkhKRqx85IB5ICufAwYTN94clPDgt7g\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/settings\"}', '2026-11-05 01:55:36', '2026-11-05 01:55:36'),
 (1351, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-05 01:55:37', '2026-11-05 01:55:37'),
-(1352, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-05 01:55:39', '2026-11-05 01:55:39');
+(1352, 1, 'admin/settings/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-05 01:55:39', '2026-11-05 01:55:39'),
+(1353, 1, 'admin', 'GET', '127.0.0.1', '[]', '2026-11-09 02:39:58', '2026-11-09 02:39:58'),
+(1354, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-09 02:39:59', '2026-11-09 02:39:59'),
+(1355, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:40:10', '2026-11-09 02:40:10'),
+(1356, 1, 'admin/auth/menu/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:40:13', '2026-11-09 02:40:13'),
+(1357, 1, 'admin/auth/menu/3', 'PUT', '127.0.0.1', '{\"parent_id\":\"2\",\"title\":\"Qu\\u1ea3n l\\u00fd tk admin\",\"icon\":\"fa-users\",\"uri\":\"auth\\/users\",\"roles\":[null],\"permission\":null,\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-09 02:40:27', '2026-11-09 02:40:27'),
+(1358, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 02:40:28', '2026-11-09 02:40:28'),
+(1359, 1, 'admin/auth/menu/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:40:45', '2026-11-09 02:40:45'),
+(1360, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:40:50', '2026-11-09 02:40:50'),
+(1361, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '[]', '2026-11-09 02:40:52', '2026-11-09 02:40:52'),
+(1362, 1, 'admin/auth/roles/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:40:56', '2026-11-09 02:40:56'),
+(1363, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:41:16', '2026-11-09 02:41:16'),
+(1364, 1, 'admin/auth/permissions/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:41:26', '2026-11-09 02:41:26'),
+(1365, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:41:31', '2026-11-09 02:41:31'),
+(1366, 1, 'admin/auth/permissions/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:42:30', '2026-11-09 02:42:30'),
+(1367, 1, 'admin/mau-de-thi', 'GET', '127.0.0.1', '[]', '2026-11-09 02:42:38', '2026-11-09 02:42:38'),
+(1368, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:43:03', '2026-11-09 02:43:03'),
+(1369, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"Qu\\u1ea3n l\\u00fd tk h\\u1ecdc sinh\",\"icon\":\"fa-bars\",\"uri\":\"\\/user\",\"roles\":[null],\"permission\":null,\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\"}', '2026-11-09 02:43:35', '2026-11-09 02:43:35'),
+(1370, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 02:43:35', '2026-11-09 02:43:35'),
+(1371, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 02:43:39', '2026-11-09 02:43:39'),
+(1372, 1, 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:43:41', '2026-11-09 02:43:41'),
+(1373, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:43:50', '2026-11-09 02:43:50'),
+(1374, 1, 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:43:55', '2026-11-09 02:43:55'),
+(1375, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:02', '2026-11-09 02:44:02'),
+(1376, 1, 'admin/auth/permissions/1/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:05', '2026-11-09 02:44:05'),
+(1377, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:11', '2026-11-09 02:44:11'),
+(1378, 1, 'admin/auth/permissions/3/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:17', '2026-11-09 02:44:17'),
+(1379, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:25', '2026-11-09 02:44:25'),
+(1380, 1, 'admin/auth/permissions/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:44:28', '2026-11-09 02:44:28'),
+(1381, 1, 'admin/auth/permissions', 'POST', '127.0.0.1', '{\"slug\":\"user\",\"name\":\"Qu\\u1ea3n l\\u00fd h\\u1ecdc sinh\",\"http_method\":[null],\"http_path\":null,\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 02:44:44', '2026-11-09 02:44:44'),
+(1382, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 02:44:44', '2026-11-09 02:44:44'),
+(1383, 1, 'admin/auth/permissions/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:45:00', '2026-11-09 02:45:00'),
+(1384, 1, 'admin/auth/permissions/6', 'PUT', '127.0.0.1', '{\"slug\":\"user\",\"name\":\"Qu\\u1ea3n l\\u00fd h\\u1ecdc sinh\",\"http_method\":[null],\"http_path\":null,\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 02:46:33', '2026-11-09 02:46:33'),
+(1385, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 02:46:33', '2026-11-09 02:46:33'),
+(1386, 1, 'admin/auth/permissions/6/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:47:56', '2026-11-09 02:47:56'),
+(1387, 1, 'admin/auth/permissions/6', 'PUT', '127.0.0.1', '{\"slug\":\"user\",\"name\":\"Qu\\u1ea3n l\\u00fd h\\u1ecdc sinh\",\"http_method\":[null],\"http_path\":\"\\/user\",\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 02:48:00', '2026-11-09 02:48:00'),
+(1388, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 02:48:00', '2026-11-09 02:48:00'),
+(1389, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:48:10', '2026-11-09 02:48:10'),
+(1390, 1, 'admin/auth/roles/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:48:12', '2026-11-09 02:48:12'),
+(1391, 1, 'admin/auth/roles', 'POST', '127.0.0.1', '{\"slug\":\"giao-vien\",\"name\":\"Gi\\u00e1o vi\\u00ean\",\"permissions\":[\"6\",null],\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/roles\"}', '2026-11-09 02:50:05', '2026-11-09 02:50:05'),
+(1392, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '[]', '2026-11-09 02:50:06', '2026-11-09 02:50:06'),
+(1393, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:52:18', '2026-11-09 02:52:18'),
+(1394, 1, 'admin/auth/permissions/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:52:23', '2026-11-09 02:52:23'),
+(1395, 1, 'admin/auth/permissions', 'POST', '127.0.0.1', '{\"slug\":\"exam.management\",\"name\":\"Qu\\u1ea3n l\\u00fd \\u0111\\u1ec1 thi\",\"http_method\":[null],\"http_path\":\"\\/mau-de-thi\\r\\n\\/mau-de-thi\\/*\\r\\n\\/questions\\r\\n\\/questions\\/*\\r\\n\\/exams\\r\\n\\/exams\\/*\",\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 02:52:53', '2026-11-09 02:52:53'),
+(1396, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 02:52:53', '2026-11-09 02:52:53'),
+(1397, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:53:00', '2026-11-09 02:53:00'),
+(1398, 1, 'admin/auth/roles/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:53:03', '2026-11-09 02:53:03'),
+(1399, 1, 'admin/auth/roles/2', 'PUT', '127.0.0.1', '{\"slug\":\"giao-vien\",\"name\":\"Gi\\u00e1o vi\\u00ean\",\"permissions\":[\"6\",\"7\",null],\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/roles\"}', '2026-11-09 02:53:09', '2026-11-09 02:53:09'),
+(1400, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '[]', '2026-11-09 02:53:10', '2026-11-09 02:53:10'),
+(1401, 1, 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:53:17', '2026-11-09 02:53:17'),
+(1402, 1, 'admin/auth/users/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:53:19', '2026-11-09 02:53:19'),
+(1403, 1, 'admin/auth/users', 'POST', '127.0.0.1', '{\"username\":\"doannam\",\"name\":\"\\u0110o\\u00e0n Nam\",\"password\":\"123456\",\"password_confirmation\":\"123456\",\"roles\":[\"2\",null],\"permissions\":[\"6\",\"7\",null],\"_token\":\"BGQKcAa2JhgsH2DBIOxkTWzqTAg0QOAhespdTOJe\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/users\"}', '2026-11-09 02:53:51', '2026-11-09 02:53:51'),
+(1404, 1, 'admin/auth/users', 'GET', '127.0.0.1', '[]', '2026-11-09 02:53:52', '2026-11-09 02:53:52'),
+(1405, 1, 'admin/auth/logout', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:02', '2026-11-09 02:54:02'),
+(1406, 2, 'admin', 'GET', '127.0.0.1', '[]', '2026-11-09 02:54:12', '2026-11-09 02:54:12'),
+(1407, 2, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:22', '2026-11-09 02:54:22'),
+(1408, 2, 'admin/mau-de-thi', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:27', '2026-11-09 02:54:27'),
+(1409, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:30', '2026-11-09 02:54:30'),
+(1410, 2, 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:32', '2026-11-09 02:54:32'),
+(1411, 2, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:40', '2026-11-09 02:54:40'),
+(1412, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:54:44', '2026-11-09 02:54:44'),
+(1413, 1, 'admin', 'GET', '127.0.0.1', '[]', '2026-11-09 02:55:04', '2026-11-09 02:55:04'),
+(1414, 1, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-09 02:55:04', '2026-11-09 02:55:04'),
+(1415, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:55:20', '2026-11-09 02:55:20'),
+(1416, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:55:35', '2026-11-09 02:55:35'),
+(1417, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:56:49', '2026-11-09 02:56:49'),
+(1418, 2, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 02:57:03', '2026-11-09 02:57:03'),
+(1419, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:00:30', '2026-11-09 03:00:30'),
+(1420, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:00:39', '2026-11-09 03:00:39'),
+(1421, 1, 'admin/auth/menu/16/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:00:46', '2026-11-09 03:00:46'),
+(1422, 1, 'admin/auth/menu/16', 'PUT', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"Danh m\\u1ee5c to\\u00e1n\",\"icon\":\"fa-american-sign-language-interpreting\",\"uri\":\"\\/danh-muc-toan\",\"roles\":[null],\"permission\":\"*\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-09 03:01:06', '2026-11-09 03:01:06'),
+(1423, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 03:01:07', '2026-11-09 03:01:07'),
+(1424, 2, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-09 03:01:12', '2026-11-09 03:01:12'),
+(1425, 1, 'admin/auth/menu/10/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:01:29', '2026-11-09 03:01:29'),
+(1426, 1, 'admin/auth/menu/10', 'PUT', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"C\\u1ea5u h\\u00ecnh website\",\"icon\":\"fa-gear\",\"uri\":\"\\/settings\",\"roles\":[null],\"permission\":\"*\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-09 03:01:34', '2026-11-09 03:01:34'),
+(1427, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 03:01:35', '2026-11-09 03:01:35'),
+(1428, 2, 'admin/settings', 'GET', '127.0.0.1', '[]', '2026-11-09 03:01:41', '2026-11-09 03:01:41'),
+(1429, 2, 'admin/mau-de-thi', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:01:45', '2026-11-09 03:01:45'),
+(1430, 2, 'admin/questions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:01:47', '2026-11-09 03:01:47'),
+(1431, 2, 'admin/exams', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:01:48', '2026-11-09 03:01:48'),
+(1432, 2, 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:01:51', '2026-11-09 03:01:51');
+INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `input`, `created_at`, `updated_at`) VALUES
+(1433, 1, 'admin/auth/menu/16/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:02:45', '2026-11-09 03:02:45'),
+(1434, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:02:55', '2026-11-09 03:02:55'),
+(1435, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:02:59', '2026-11-09 03:02:59'),
+(1436, 1, 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:03:11', '2026-11-09 03:03:11'),
+(1437, 1, 'admin/auth/users/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:03:20', '2026-11-09 03:03:20'),
+(1438, 1, 'admin/user', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:03:41', '2026-11-09 03:03:41'),
+(1439, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:03:43', '2026-11-09 03:03:43'),
+(1440, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:03:52', '2026-11-09 03:03:52'),
+(1441, 1, 'admin/settings', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:01', '2026-11-09 03:04:01'),
+(1442, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:05', '2026-11-09 03:04:05'),
+(1443, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:11', '2026-11-09 03:04:11'),
+(1444, 1, 'admin/auth/menu/16/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:15', '2026-11-09 03:04:15'),
+(1445, 1, 'admin/auth/menu/16', 'PUT', '127.0.0.1', '{\"parent_id\":\"0\",\"title\":\"Danh m\\u1ee5c to\\u00e1n\",\"icon\":\"fa-american-sign-language-interpreting\",\"uri\":\"\\/danh-muc-toan\",\"roles\":[null],\"permission\":null,\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/menu\"}', '2026-11-09 03:04:30', '2026-11-09 03:04:30'),
+(1446, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2026-11-09 03:04:30', '2026-11-09 03:04:30'),
+(1447, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:38', '2026-11-09 03:04:38'),
+(1448, 1, 'admin/auth/permissions/7/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:04:48', '2026-11-09 03:04:48'),
+(1449, 1, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '[]', '2026-11-09 03:04:51', '2026-11-09 03:04:51'),
+(1450, 1, 'admin/auth/permissions/7', 'PUT', '127.0.0.1', '{\"slug\":\"exam.management\",\"name\":\"Qu\\u1ea3n l\\u00fd \\u0111\\u1ec1 thi\",\"http_method\":[null],\"http_path\":\"\\/mau-de-thi\\r\\n\\/mau-de-thi\\/*\\r\\n\\/danh-muc-toan\\r\\n\\/danh-muc-toan\\/*\\r\\n\\/questions\\r\\n\\/questions\\/*\\r\\n\\/exams\\r\\n\\/exams\\/*\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 03:05:14', '2026-11-09 03:05:14'),
+(1451, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 03:05:15', '2026-11-09 03:05:15'),
+(1452, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:05:20', '2026-11-09 03:05:20'),
+(1453, 1, 'admin/auth/roles/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:05:23', '2026-11-09 03:05:23'),
+(1454, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:05:49', '2026-11-09 03:05:49'),
+(1455, 1, 'admin/_handle_action_', 'POST', '127.0.0.1', '{\"_key\":\"6\",\"_model\":\"Encore_Admin_Auth_Database_Permission\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_action\":\"Encore_Admin_Grid_Actions_Delete\",\"_input\":\"true\"}', '2026-11-09 03:06:16', '2026-11-09 03:06:16'),
+(1456, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:06:16', '2026-11-09 03:06:16'),
+(1457, 1, 'admin/auth/permissions/7/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:06:20', '2026-11-09 03:06:20'),
+(1458, 1, 'admin/auth/permissions/7', 'PUT', '127.0.0.1', '{\"slug\":\"exam.management\",\"name\":\"Quy\\u1ec1n gi\\u00e1o vi\\u00ean\",\"http_method\":[null],\"http_path\":\"\\/mau-de-thi\\r\\n\\/mau-de-thi\\/*\\r\\n\\/danh-muc-toan\\r\\n\\/danh-muc-toan\\/*\\r\\n\\/questions\\r\\n\\/questions\\/*\\r\\n\\/exams\\r\\n\\/exams\\/*\\r\\n\\/user\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 03:06:41', '2026-11-09 03:06:41'),
+(1459, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 03:06:41', '2026-11-09 03:06:41'),
+(1460, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:06:48', '2026-11-09 03:06:48'),
+(1461, 1, 'admin/auth/roles/2/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:06:52', '2026-11-09 03:06:52'),
+(1462, 1, 'admin/auth/roles/2', 'PUT', '127.0.0.1', '{\"slug\":\"giao-vien\",\"name\":\"Gi\\u00e1o vi\\u00ean\",\"permissions\":[\"7\",null],\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/roles\"}', '2026-11-09 03:06:54', '2026-11-09 03:06:54'),
+(1463, 1, 'admin/auth/roles', 'GET', '127.0.0.1', '[]', '2026-11-09 03:06:54', '2026-11-09 03:06:54'),
+(1464, 1, 'admin/auth/users', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:06:55', '2026-11-09 03:06:55'),
+(1465, 2, 'admin/user', 'GET', '127.0.0.1', '[]', '2026-11-09 03:07:01', '2026-11-09 03:07:01'),
+(1466, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:07:06', '2026-11-09 03:07:06'),
+(1467, 2, 'admin/mau-de-thi', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:07:09', '2026-11-09 03:07:09'),
+(1468, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:07:11', '2026-11-09 03:07:11'),
+(1469, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '[]', '2026-11-09 03:07:14', '2026-11-09 03:07:14'),
+(1470, 1, 'admin/auth/users', 'GET', '127.0.0.1', '[]', '2026-11-09 03:19:22', '2026-11-09 03:19:22'),
+(1471, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:19:26', '2026-11-09 03:19:26'),
+(1472, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\",\"user_id\":null,\"type\":null,\"status\":null,\"exam_id\":\"1\",\"created_at\":{\"start\":null,\"end\":null},\"topic_title\":null}', '2026-11-09 03:19:41', '2026-11-09 03:19:41'),
+(1473, 1, 'admin/exam-attempts/10', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:19:52', '2026-11-09 03:19:52'),
+(1474, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"user_id\":null,\"type\":null,\"status\":null,\"exam_id\":\"1\",\"created_at\":{\"start\":null,\"end\":null},\"topic_title\":null}', '2026-11-09 03:19:54', '2026-11-09 03:19:54'),
+(1475, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"user_id\":null,\"type\":null,\"status\":null,\"exam_id\":\"1\",\"created_at\":{\"start\":null,\"end\":null},\"topic_title\":null}', '2026-11-09 03:21:06', '2026-11-09 03:21:06'),
+(1476, 1, 'admin/exam-attempts/10', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:11', '2026-11-09 03:21:11'),
+(1477, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"user_id\":null,\"type\":null,\"status\":null,\"exam_id\":\"1\",\"created_at\":{\"start\":null,\"end\":null},\"topic_title\":null,\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:18', '2026-11-09 03:21:18'),
+(1478, 1, 'admin/exam-attempts/1', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:25', '2026-11-09 03:21:25'),
+(1479, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"user_id\":null,\"type\":null,\"status\":null,\"exam_id\":\"1\",\"created_at\":{\"start\":null,\"end\":null},\"topic_title\":null,\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:31', '2026-11-09 03:21:31'),
+(1480, 1, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:38', '2026-11-09 03:21:38'),
+(1481, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:46', '2026-11-09 03:21:46'),
+(1482, 1, 'admin/auth/permissions/7/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:21:49', '2026-11-09 03:21:49'),
+(1483, 1, 'admin/auth/permissions/7', 'PUT', '127.0.0.1', '{\"slug\":\"exam.management\",\"name\":\"Quy\\u1ec1n gi\\u00e1o vi\\u00ean\",\"http_method\":[null],\"http_path\":\"\\/mau-de-thi\\r\\n\\/mau-de-thi\\/*\\r\\n\\/danh-muc-toan\\r\\n\\/danh-muc-toan\\/*\\r\\n\\/questions\\r\\n\\/questions\\/*\\r\\n\\/exams\\r\\n\\/exams\\/*\\r\\n\\/user\\r\\n\\/exam-attempts\\r\\n\\/exam-attempts\\/*\",\"_token\":\"DNqsQiPVwzema9jhqv1qHMxjjPerjI0T6yRv1xkn\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/mathqnai.local\\/admin\\/auth\\/permissions\"}', '2026-11-09 03:22:00', '2026-11-09 03:22:00'),
+(1484, 1, 'admin/auth/permissions', 'GET', '127.0.0.1', '[]', '2026-11-09 03:22:01', '2026-11-09 03:22:01'),
+(1485, 2, 'admin/danh-muc-toan', 'GET', '127.0.0.1', '[]', '2026-11-09 03:22:12', '2026-11-09 03:22:12'),
+(1486, 2, 'admin/exam-attempts', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2026-11-09 03:22:16', '2026-11-09 03:22:16');
 
 -- --------------------------------------------------------
 
@@ -1467,7 +1604,8 @@ INSERT INTO `admin_permissions` (`id`, `name`, `slug`, `http_method`, `http_path
 (2, 'Dashboard', 'dashboard', 'GET', '/', NULL, NULL),
 (3, 'Login', 'auth.login', '', '/auth/login\r\n/auth/logout', NULL, NULL),
 (4, 'User setting', 'auth.setting', 'GET,PUT', '/auth/setting', NULL, NULL),
-(5, 'Auth management', 'auth.management', '', '/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs', NULL, NULL);
+(5, 'Auth management', 'auth.management', '', '/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs', NULL, NULL),
+(7, 'Quyền giáo viên', 'exam.management', '', '/mau-de-thi\r\n/mau-de-thi/*\r\n/danh-muc-toan\r\n/danh-muc-toan/*\r\n/questions\r\n/questions/*\r\n/exams\r\n/exams/*\r\n/user\r\n/exam-attempts\r\n/exam-attempts/*', '2026-11-09 02:52:53', '2026-11-09 03:22:00');
 
 -- --------------------------------------------------------
 
@@ -1488,7 +1626,8 @@ CREATE TABLE `admin_roles` (
 --
 
 INSERT INTO `admin_roles` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'administrator', '2025-09-28 10:21:54', '2025-09-28 10:21:54');
+(1, 'Administrator', 'administrator', '2025-09-28 10:21:54', '2025-09-28 10:21:54'),
+(2, 'Giáo viên', 'giao-vien', '2026-11-09 02:50:05', '2026-11-09 02:50:05');
 
 -- --------------------------------------------------------
 
@@ -1528,7 +1667,8 @@ CREATE TABLE `admin_role_permissions` (
 --
 
 INSERT INTO `admin_role_permissions` (`role_id`, `permission_id`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, NULL);
+(1, 1, NULL, NULL),
+(2, 7, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1548,7 +1688,8 @@ CREATE TABLE `admin_role_users` (
 --
 
 INSERT INTO `admin_role_users` (`role_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, NULL, NULL);
+(1, 1, NULL, NULL),
+(2, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1572,7 +1713,8 @@ CREATE TABLE `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `username`, `password`, `name`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$12$bTLSTpd/IuyxvWJJAmosBeOCa0RMka3WZr4/f0eI2l0d4eITS7Uqy', 'Administrator', NULL, 'NJ3abrQvRwxQLHgeLfdo7u9VzS1MJyEt7jsUmUyvEb5meGlSLM7TS11m283m', '2025-09-28 10:21:54', '2025-09-28 10:21:54');
+(1, 'admin', '$2y$12$bTLSTpd/IuyxvWJJAmosBeOCa0RMka3WZr4/f0eI2l0d4eITS7Uqy', 'Administrator', NULL, 'MfFKssxem4MkWc5C4eTRhrVR4DyWPRYf4knd9N74E4HAGuE1m1Pb0PLNQtVd', '2025-09-28 10:21:54', '2025-09-28 10:21:54'),
+(2, 'doannam', '$2y$12$aADlgTfuxObfNS440owc2eJmGA8GrEe3TuwUjTdg7CTHpnimYE4LK', 'Đoàn Nam', NULL, 'DYEI2pluWaNuGFcVHTQEep6YOEgv2jGmBasP7XHaSPk53MBGAnrKQGTS0546', '2026-11-09 02:53:52', '2026-11-09 02:53:52');
 
 -- --------------------------------------------------------
 
@@ -1586,6 +1728,14 @@ CREATE TABLE `admin_user_permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `admin_user_permissions`
+--
+
+INSERT INTO `admin_user_permissions` (`user_id`, `permission_id`, `created_at`, `updated_at`) VALUES
+(2, 6, NULL, NULL),
+(2, 7, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1710,22 +1860,6 @@ INSERT INTO `exam_attempts` (`id`, `exam_id`, `user_id`, `type`, `taxonomy_item_
 (9, NULL, 1, 1, 7, 'Luyện tập - Đại số - Câu hỏi dễ', 1, 1, 0, 1, 0, 0, 14, '2026-11-05 02:47:32', '2026-11-05 02:47:46', '[9]', '2026-11-05 02:47:32', '2026-11-05 02:47:46'),
 (10, 1, 1, 0, 0, 'Đề 1', 2, 8, 0, 8, 0, 30, 10656, '2026-11-04 23:52:49', '2026-11-05 02:50:25', NULL, '2026-11-05 02:50:25', '2026-11-05 02:50:25'),
 (11, 2, 1, 2, 0, 'Thi thử - Đề 2', 1, 8, 0, 8, 0, 30, 18, '2026-11-05 03:02:42', '2026-11-05 03:03:00', NULL, '2026-11-05 03:03:00', '2026-11-05 03:03:00');
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `exam_keys`
---
-
-CREATE TABLE `exam_keys` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `status` int(11) DEFAULT 0,
-  `keys_id` int(11) DEFAULT 0,
-  `number` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -2009,7 +2143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2026_11_05_000003_add_taxonomy_item_id_to_exam_attempts_table', 5),
 (12, '2026_11_05_000004_make_exam_id_nullable_in_exam_attempts_table', 6),
 (13, '2026_11_05_000005_make_exam_id_nullable_in_exam_results_table', 6),
-(14, '2026_11_05_000006_add_question_ids_to_exam_attempts_table', 7);
+(14, '2026_11_05_000006_add_question_ids_to_exam_attempts_table', 7),
+(15, '2026_11_09_171500_add_exam_attempts_menu_to_admin_menu_table', 8);
 
 -- --------------------------------------------------------
 
@@ -2138,7 +2273,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('zm4DhqSN1aqLXAEMwthL5PleZizFDLPpVnlyBx5i', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYUdPTkZsQVI2blJDQjBJM0xmQkxkeGNMV2RuSm9zM0VsYlNQUmtUTyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9tYXRocW5haS5sb2NhbC9kYXNoYm9hcmQiO3M6NToicm91dGUiO047fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1793874669);
+('fUdonsnWznv6Q5Wf6kcsTlWlc85q9RnuaF421dOm', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36', 'YTo0OntzOjk6Il9wcmV2aW91cyI7YToyOntzOjM6InVybCI7czo0MToiaHR0cDovL21hdGhxbmFpLmxvY2FsL2FkbWluL2RhbmgtbXVjLXRvYW4iO3M6NToicm91dGUiO3M6MjU6ImFkbWluLmRhbmgtbXVjLXRvYW4uaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjY6Il90b2tlbiI7czo0MDoiVmFHUUhtYUZqZzMxTmxLM21wZXhHTm9qQXlMVGlDY2tJUFE0dWc4YiI7czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO30=', 1794219736),
+('Hpk94LVh9OjBQHZXJFRuqmuEVYE1iKoP4WBRvuB4', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiRE5xc1FpUFZ3emVtYTlqaHF2MXFITXhqalBlcmpJMFQ2eVJ2MXhrbiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MTMxOiJodHRwOi8vbWF0aHFuYWkubG9jYWwvYWRtaW4vZXhhbS1hdHRlbXB0cz9jcmVhdGVkX2F0JTVCc3RhcnQlNUQ9JmNyZWF0ZWRfYXQlNUJlbmQlNUQ9JmV4YW1faWQ9MSZzdGF0dXM9JnRvcGljX3RpdGxlPSZ0eXBlPSZ1c2VyX2lkPSI7czo1OiJyb3V0ZSI7czoyNToiYWRtaW4uZXhhbS1hdHRlbXB0cy5pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1794219721);
 
 -- --------------------------------------------------------
 
@@ -2392,12 +2528,6 @@ ALTER TABLE `exam_attempts`
   ADD KEY `exam_attempts_user_id_created_at_index` (`user_id`,`created_at`);
 
 --
--- Chỉ mục cho bảng `exam_keys`
---
-ALTER TABLE `exam_keys`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Chỉ mục cho bảng `exam_question`
 --
 ALTER TABLE `exam_question`
@@ -2529,31 +2659,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1353;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1487;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_permissions`
 --
 ALTER TABLE `admin_permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_roles`
 --
 ALTER TABLE `admin_roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `categories`
@@ -2572,12 +2702,6 @@ ALTER TABLE `exams`
 --
 ALTER TABLE `exam_attempts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT cho bảng `exam_keys`
---
-ALTER TABLE `exam_keys`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `exam_question`
@@ -2625,7 +2749,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `posts`

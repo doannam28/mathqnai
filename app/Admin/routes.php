@@ -27,6 +27,7 @@ Route::group([
     $router->resource('questions', \App\Admin\Controllers\QuestionController::class);
     $router->resource('tags', \App\Admin\Controllers\TagController::class);
     $router->resource('exams', \App\Admin\Controllers\ExamsController::class);
+    $router->resource('exam-attempts', \App\Admin\Controllers\ExamAttemptController::class);
     $router->resource('user', \App\Admin\Controllers\UserController::class);
     $router->get('/', 'HomeController@index')->name('home');
 });

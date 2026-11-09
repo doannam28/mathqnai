@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class ExamAttempt extends Model
@@ -29,5 +31,21 @@ class ExamAttempt extends Model
     protected $casts = [
         'started_at' => 'datetime',
         'submitted_at' => 'datetime',
+        'question_ids' => 'array',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function exam(): BelongsTo
+    {
+        return $this->belongsTo(Exams::class, 'exam_id');
+    }
+
+    public function results(): HasMany
+    {
+        return $this->hasMany(ExamResult::class, 'attempt_id');
+    }
 }
