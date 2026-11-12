@@ -17,11 +17,7 @@
 <body>
 <main class="register-page container-fluid">
     <header aria-label="MATH-QN AI" class="brand d-flex align-items-center justify-content-center">
-        <img alt="Biểu tượng MATH-QN AI" class="brand-mascot" src="assets/images/mascot.svg"/>
-        <div class="brand-copy">
-            <div class="brand-name">MATH-QN <span>AI</span></div>
-            <div class="brand-tagline">Hệ thống học Toán cá nhân hóa</div>
-        </div>
+        <img alt="{{$setting->name}}" class="img-logo" src="{{Storage::disk('admin')->url($setting->logo)}}"/>
     </header>
     <section aria-labelledby="forgot-title" class="register-card mx-auto">
         <h1 id="forgot-title">Quên mật khẩu</h1>
