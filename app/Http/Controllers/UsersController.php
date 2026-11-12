@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Response;
@@ -14,6 +15,16 @@ use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 class UsersController extends Controller
 {
+    private function grade9BirthDateRange(): array
+    {
+        $today = Carbon::today();
+
+        return [
+            $today->copy()->subYears(16)->addDay()->startOfDay(),
+            $today->copy()->subYears(13)->endOfDay(),
+        ];
+    }
+
     public function login(Request $request)
     {
         return view('users.login');
@@ -299,10 +310,31 @@ class UsersController extends Controller
             return redirect('/dang-nhap');
         }
 
+        [$minBirthDate, $maxBirthDate] = $this->grade9BirthDateRange();
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'sex' => 'required|in:0,1',
-            'birth_date' => 'nullable|date_format:Y-m-d',
+            'birth_date' => [
+                'nullable',
+                'date_format:Y-m-d',
+                function ($attribute, $value, $fail) use ($minBirthDate, $maxBirthDate) {
+                    try {
+                        $date = Carbon::createFromFormat('Y-m-d', $value);
+
+                        if ($date->format('Y-m-d') !== $value) {
+                            throw new \RuntimeException('Invalid date');
+                        }
+                    } catch (\Throwable $e) {
+                        $fail('Ngày sinh không hợp lệ.');
+                        return;
+                    }
+
+                    if ($date->lt($minBirthDate) || $date->gt($maxBirthDate)) {
+                        $fail('Ngày sinh phải nằm trong khoảng tuổi dành cho học sinh lớp 9.');
+                    }
+                },
+            ],
             'avata' => 'nullable|image|max:2048',
             'password' => 'nullable|string|min:8|confirmed',
         ], [
@@ -403,6 +435,8 @@ class UsersController extends Controller
     public function submit_register(Request $request)
     {
         try {
+            [$minBirthDate, $maxBirthDate] = $this->grade9BirthDateRange();
+
             // 1. Validate dữ liệu đăng ký
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:255',
@@ -410,7 +444,26 @@ class UsersController extends Controller
                 'sex' => 'required|in:0,1',
                 'password' => 'required|string|min:8|confirmed',
                 'password_confirmation' => 'required|string|min:8',
-                'birth_date' => 'required|date_format:d/m/Y|before_or_equal:today',
+                'birth_date' => [
+                    'required',
+                    'date_format:d/m/Y',
+                    function ($attribute, $value, $fail) use ($minBirthDate, $maxBirthDate) {
+                        try {
+                            $date = Carbon::createFromFormat('d/m/Y', $value);
+
+                            if ($date->format('d/m/Y') !== $value) {
+                                throw new \RuntimeException('Invalid date');
+                            }
+                        } catch (\Throwable $e) {
+                            $fail('Ngày sinh phải có định dạng DD/MM/YYYY.');
+                            return;
+                        }
+
+                        if ($date->lt($minBirthDate) || $date->gt($maxBirthDate)) {
+                            $fail('Trang đăng ký chỉ dành cho học sinh lớp 9.');
+                        }
+                    },
+                ],
             ], [
                 'full_name.required' => 'Vui lòng nhập họ và tên.',
                 'full_name.max' => 'Họ và tên không được vượt quá 255 ký tự.',
@@ -432,7 +485,6 @@ class UsersController extends Controller
 
                 'birth_date.required' => 'Vui lòng nhập ngày sinh.',
                 'birth_date.date_format' => 'Ngày sinh phải có định dạng DD/MM/YYYY.',
-                'birth_date.before_or_equal' => 'Ngày sinh không được lớn hơn ngày hiện tại.',
             ]);
 
             // 2. Trả về lỗi validation

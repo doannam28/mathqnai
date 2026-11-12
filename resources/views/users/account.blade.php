@@ -2,6 +2,9 @@
 @section('content')
 @php
     $birthDateValue = old('birth_date', $user->birth_date ? \Carbon\Carbon::parse($user->birth_date)->format('Y-m-d') : '');
+    $today = \Carbon\Carbon::today();
+    $minBirthDateValue = $today->copy()->subYears(16)->addDay()->format('Y-m-d');
+    $maxBirthDateValue = $today->copy()->subYears(13)->format('Y-m-d');
     $avatarPath = $user->avata ? asset($user->avata) : null;
     $avatarLetter = mb_strtoupper(mb_substr($user->name ?? 'U', 0, 1));
 @endphp
@@ -100,8 +103,16 @@
                                 class="form-control form-control-lg"
                                 id="birth_date"
                                 name="birth_date"
+                                min="{{ $minBirthDateValue }}"
+                                max="{{ $maxBirthDateValue }}"
                                 value="{{ $birthDateValue }}"
                             >
+                            <div class="form-text text-secondary">
+                                Chỉ áp dụng cho học sinh lớp 9, sinh từ
+                                {{ \Carbon\Carbon::parse($minBirthDateValue)->format('d/m/Y') }}
+                                đến
+                                {{ \Carbon\Carbon::parse($maxBirthDateValue)->format('d/m/Y') }}.
+                            </div>
                         </div>
 
                         <div class="col-12">

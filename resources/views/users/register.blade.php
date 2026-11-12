@@ -1,4 +1,9 @@
-<?php $setting = App\Helpers\Utility::setting();?>
+<?php
+$setting = App\Helpers\Utility::setting();
+$today = \Carbon\Carbon::today();
+$minBirthDateValue = $today->copy()->subYears(16)->addDay()->format('Y-m-d');
+$maxBirthDateValue = $today->copy()->subYears(13)->format('Y-m-d');
+?>
     <!doctype html>
 <html lang="vi">
 <head>
@@ -29,15 +34,15 @@
         <form class="needs-validation" id="registerForm" novalidate="">
             @csrf
             <div class="field">
-                <label class="form-label" for="fullName">Họ và tên</label>
+                <label class="form-label" for="fullName">Họ và tên<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon"><i aria-hidden="true" class="bi bi-person"></i><input autocomplete="name" class="form-control" id="fullName" name="full_name" placeholder="Nhập họ và tên" required=""/></div>
                 <div class="invalid-feedback">Vui lòng nhập họ và tên.</div></div>
             <div class="field">
-                <label class="form-label" for="email">Email</label>
+                <label class="form-label" for="email">Email<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon"><i aria-hidden="true" class="bi bi-envelope"></i><input autocomplete="email" class="form-control" id="email" name="email" placeholder="Nhập email" required="" type="email"/></div>
                 <div class="invalid-feedback">Vui lòng nhập email hợp lệ.</div></div>
             <div class="field">
-                <label class="form-label" for="sex">Giới tính</label>
+                <label class="form-label" for="sex">Giới tính<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon">
                     <i aria-hidden="true" class="bi bi-gender-ambiguous"></i>
                     <select class="form-select" id="sex" name="sex" required>
@@ -49,17 +54,24 @@
                 <div class="invalid-feedback">Vui lòng chọn giới tính.</div>
             </div>
             <div class="field">
-                <label class="form-label" for="password">Mật khẩu</label>
+                <label class="form-label" for="password">Mật khẩu<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon has-action"><i aria-hidden="true" class="bi bi-lock"></i><input autocomplete="new-password" class="form-control" id="password" minlength="8" name="password" placeholder="Nhập mật khẩu" required="" type="password"/><button aria-label="Hiện mật khẩu" class="input-action toggle-password" data-target="password" type="button"><i class="bi bi-eye"></i></button></div>
                 <div class="invalid-feedback">Vui lòng nhập mật khẩu tối thiểu 8 ký tự.</div></div>
             <div class="field">
-                <label class="form-label" for="confirmPassword">Nhập lại mật khẩu</label>
+                <label class="form-label" for="confirmPassword">Nhập lại mật khẩu<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon has-action"><i aria-hidden="true" class="bi bi-lock"></i><input autocomplete="new-password" class="form-control" id="confirmPassword" name="password_confirmation" placeholder="Nhập lại mật khẩu" required="" type="password"/><button aria-label="Hiện mật khẩu" class="input-action toggle-password" data-target="confirmPassword" type="button"><i class="bi bi-eye"></i></button></div>
                 <div class="invalid-feedback">Vui lòng nhập lại mật khẩu trùng khớp.</div></div>
             <div class="field last-field">
-                <label class="form-label" for="birthDate">Ngày sinh</label>
+                <label class="form-label" for="birthDate">Ngày sinh<span style="color:red; padding-left: 5px">*</span></label>
                 <div class="input-icon has-action"><i aria-hidden="true" class="bi bi-calendar3"></i><input class="form-control" id="birthDate" inputmode="numeric" maxlength="10" name="birth_date" placeholder="DD/MM/YYYY" required="" type="text"/><button aria-label="Chọn ngày sinh" class="input-action" id="calendarButton" type="button"><i class="bi bi-calendar3"></i></button><input aria-label="Lịch chọn ngày sinh" class="native-date" id="nativeDate" tabindex="-1" type="date"/></div>
-                <div class="invalid-feedback">Vui lòng nhập ngày sinh hợp lệ (DD/MM/YYYY).</div></div>
+                <div class="invalid-feedback">Vui lòng nhập ngày sinh hợp lệ (DD/MM/YYYY).</div>
+                <small class="text-muted d-block mt-1">
+                    Chỉ áp dụng cho học sinh lớp 9, sinh từ
+                    {{ \Carbon\Carbon::parse($minBirthDateValue)->format('d/m/Y') }}
+                    đến
+                    {{ \Carbon\Carbon::parse($maxBirthDateValue)->format('d/m/Y') }}.
+                </small>
+            </div>
 
 
             <div aria-live="polite" class="form-feedback" id="formFeedback" role="status"></div>
@@ -76,6 +88,17 @@
     const confirmPassword = document.getElementById('confirmPassword');
     const birthDate = document.getElementById('birthDate');
     const feedback = document.getElementById('formFeedback');
+    const minBirthDate = new Date("{{ $minBirthDateValue }}T00:00:00");
+    const maxBirthDate = new Date("{{ $maxBirthDateValue }}T00:00:00");
+    const minBirthDateLabel = "{{ \Carbon\Carbon::parse($minBirthDateValue)->format('d/m/Y') }}";
+    const maxBirthDateLabel = "{{ \Carbon\Carbon::parse($maxBirthDateValue)->format('d/m/Y') }}";
+
+    function formatDateForInput(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
 
     document.querySelectorAll('.toggle-password').forEach(button => {
         button.addEventListener('click', () => {
@@ -88,6 +111,8 @@
     });
 
     const nativeDate = document.getElementById('nativeDate');
+    nativeDate.min = formatDateForInput(minBirthDate);
+    nativeDate.max = formatDateForInput(maxBirthDate);
     document.getElementById('calendarButton').addEventListener('click', () => {
         if (nativeDate.showPicker) nativeDate.showPicker(); else nativeDate.click();
     });
@@ -105,9 +130,9 @@
             const d = Number(match[1]), m = Number(match[2]), y = Number(match[3]);
             const date = new Date(y, m - 1, d);
             valid = y >= 1900 && date.getFullYear() === y && date.getMonth() === m - 1 &&
-                date.getDate() === d && date <= new Date();
+                date.getDate() === d && date >= minBirthDate && date <= maxBirthDate;
         }
-        birthDate.setCustomValidity(valid ? '' : 'Ngày sinh không hợp lệ');
+        birthDate.setCustomValidity(valid ? '' : `Ngày sinh phải nằm trong khoảng ${minBirthDateLabel} - ${maxBirthDateLabel}`);
     }
 
     function validateConfirmation() {
@@ -149,6 +174,9 @@
                     });
                     form.reset();
                     form.classList.remove('was-validated');
+                    birthDate.setCustomValidity('');
+                    confirmPassword.setCustomValidity('');
+                    nativeDate.value = '';
                 } else {
                     Swal.fire({
                         icon: 'error',
