@@ -39,6 +39,7 @@
     <meta property="og:description" content="{{$setting->meta_description}}">
     <meta property="og:type" content="article">
     <meta property="og:image" content="{{Storage::disk('admin')->url($setting->image_og)}}"/>
+    <link rel="icon" type="image/x-icon" href="{{Storage::disk('admin')->url($setting->favicon)}}">
     <meta name="twitter:card" content="{{$setting->meta_description}}"/>
     <meta name="twitter:site" content="{{$setting->website}}"/>
     <meta name="twitter:title" content="{{$setting->site_title}}"/>

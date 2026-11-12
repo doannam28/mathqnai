@@ -18,6 +18,7 @@ $maxBirthDateValue = $today->copy()->subYears(13)->format('Y-m-d');
     <link rel="stylesheet" href="/assets/css/register.css">
     <title>Đăng ký tài khoản</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/x-icon" href="{{Storage::disk('admin')->url($setting->favicon)}}">
 </head>
 <body>
 <main class="register-page container-fluid">

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/assets/css/register.css">
     <title>Quên mật khẩu</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" type="image/x-icon" href="{{Storage::disk('admin')->url($setting->favicon)}}">
 </head>
 <body>
 <main class="register-page container-fluid">
