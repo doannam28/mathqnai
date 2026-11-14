@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 Route::get('/dang-ky', [\App\Http\Controllers\UsersController::class, 'register']);
-Route::get('/dang-nhap', [\App\Http\Controllers\UsersController::class, 'login']);
+Route::get('/dang-nhap', [\App\Http\Controllers\UsersController::class, 'login'])
+    ->name('login');
 Route::get('/quen-mat-khau', [\App\Http\Controllers\UsersController::class, 'forgotPasswordForm'])->name('password.request');
 Route::post('/quen-mat-khau', [\App\Http\Controllers\UsersController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/dat-lai-mat-khau/{token}', [\App\Http\Controllers\UsersController::class, 'resetPasswordForm'])->name('password.reset');

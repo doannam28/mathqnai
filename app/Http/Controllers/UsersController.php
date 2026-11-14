@@ -27,11 +27,19 @@ class UsersController extends Controller
 
     public function login(Request $request)
     {
+        $user = Auth::guard('web')->user();
+        if ($user) {
+            return redirect('/dashboard');
+        }
         return view('users.login');
     }
 
     public function forgotPasswordForm()
     {
+        $user = Auth::guard('web')->user();
+        if ($user) {
+            return redirect('/dashboard');
+        }
         return view('users.forgot_password');
     }
 
@@ -94,6 +102,10 @@ class UsersController extends Controller
 
     public function resetPassword(Request $request)
     {
+        $user = Auth::guard('web')->user();
+        if ($user) {
+            return redirect('/dashboard');
+        }
         $validator = Validator::make($request->all(), [
             'token' => 'required|string',
             'email' => 'required|email',
@@ -286,6 +298,10 @@ class UsersController extends Controller
 
     public function register(Request $request)
     {
+        $user = Auth::guard('web')->user();
+        if ($user) {
+            return redirect('/dashboard');
+        }
         return view('users.register');
     }
 
